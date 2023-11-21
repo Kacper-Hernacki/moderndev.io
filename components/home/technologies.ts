@@ -1,0 +1,62 @@
+// Importing each image
+import logo1 from "@/public/technologies/1.png";
+import logo2 from "@/public/technologies/2.png";
+import logo3 from "@/public/technologies/3.png";
+import logo4 from "@/public/technologies/4.png";
+import logo5 from "@/public/technologies/5.png";
+import logo6 from "@/public/technologies/6.png";
+import logo7 from "@/public/technologies/7.png";
+import logo8 from "@/public/technologies/8.png";
+import logo9 from "@/public/technologies/9.png";
+import logo10 from "@/public/technologies/10.png";
+import logo11 from "@/public/technologies/11.png";
+import logo12 from "@/public/technologies/12.png";
+import logo13 from "@/public/technologies/13.png";
+import logo14 from "@/public/technologies/14.png";
+import logo15 from "@/public/technologies/15.png";
+import logo16 from "@/public/technologies/16.png";
+import logo17 from "@/public/technologies/17.png";
+import logo18 from "@/public/technologies/18.png";
+import logo19 from "@/public/technologies/19.png";
+import logo20 from "@/public/technologies/20.png";
+import logo21 from "@/public/technologies/21.png";
+import logo22 from "@/public/technologies/22.png";
+import logo23 from "@/public/technologies/23.png";
+import logo24 from "@/public/technologies/24.png";
+import logo25 from "@/public/technologies/25.png";
+import logo26 from "@/public/technologies/26.png";
+import logo27 from "@/public/technologies/27.png";
+import logo28 from "@/public/technologies/28.png";
+import logo29 from "@/public/technologies/29.png";
+
+export const technologies = [
+  { "image": logo1 },
+  { "image": logo2 },
+  { "image": logo3 },
+  { "image": logo4 },
+  { "image": logo5 },
+  { "image": logo6 },
+  { "image": logo7 },
+  { "image": logo8 },
+  { "image": logo9 },
+  { "image": logo10 },
+  { "image": logo11 },
+  { "image": logo12 },
+  { "image": logo13 },
+  { "image": logo14 },
+  { "image": logo15 },
+  { "image": logo16 },
+  { "image": logo17 },
+  { "image": logo18 },
+  { "image": logo19 },
+  { "image": logo20 },
+  { "image": logo21 },
+  { "image": logo22 },
+  { "image": logo23 },
+  { "image": logo24 },
+  { "image": logo25 },
+  { "image": logo26 },
+  { "image": logo27 },
+  { "image": logo28 },
+  { "image": logo29 },
+];

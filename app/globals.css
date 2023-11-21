@@ -6,22 +6,64 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --mouseX: 0;
+  --mouseY: 0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 0, 3, 13;
+    --background-end-rgb: 0, 28, 76;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb)) linear-gradient(
+    to bottom,
+    transparent,
+    rgb(var(--background-end-rgb))
+  ) fixed;
+}
+
+.gradient-button {
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    to right top,
+    #2E5ABD,
+    #63D0E7
+  );
+  color: #000614;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.gradient-input {
+  background: linear-gradient(to right top, #2E5ABD, #63D0E7);
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  border: none;
+  box-shadow: 0 0 0 1px transparent, /* Width of the border */ 0 0 0 1px #2E5ABD, /* Inner color of the gradient */ 0 0 0 1px #63D0E7;
+}
+
+.gradient-input::placeholder {
+  background: linear-gradient(to right top, #2E5ABD, #63D0E7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text {
+  background: linear-gradient(to right top, #2E5ABD, #63D0E7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hexagon {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
