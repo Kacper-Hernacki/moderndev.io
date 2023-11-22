@@ -8,10 +8,7 @@ export default function CoursesLayout({
 }) {
   return (
     <>
-      {/*TODO: Add auth*/}
-      <Navbar isLoggedIn={false} />
         {children}
-      <Footer />
     </>
   );
 }
