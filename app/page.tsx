@@ -1,0 +1,15 @@
+import { BannerHome, ChoiceSection, CodeSnippet, HeroComponent, TechHome } from "@/components/home";
+
+export default function Home() {
+
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <HeroComponent />
+      <ChoiceSection />
+      <CodeSnippet />
+      <BannerHome header="Explained Step by Step 🎓" paragraph="Built to provide the essence of each tech" description="login and start your journey" />
+      <BannerHome header="No bull**it 🙆‍♂️" paragraph="Play with free content before subscribing" description="Eevry course has valuable free lessons 🚀" />
+      <TechHome header="Tech You will learn"  />
+    </main>
+  );
+}

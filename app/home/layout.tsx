@@ -8,10 +8,7 @@ export default function HomeLayout({
 }) {
   return (
     <>
-      {/*TODO: Add auth*/}
-      <Navbar isLoggedIn={false} />
         {children}
-      <Footer />
     </>
   );
 }
