@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import Logo from "@/public/logo.svg";
+import Logo from "@/public/moderndev-logo.png";
+import Link from "next/link";
 
 interface NavbarProps {
   isLoggedIn: boolean;
@@ -8,19 +9,23 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ isLoggedIn = false }) => {
 
   return (
-    <div className="navbar bg-transparent pr-4">
+    <div className="navbar bg-transparent pr-4 absolute z-10">
       <div className="flex-1">
-        <Image className="w-20 cursor-pointer" src={Logo} alt="logo" />
-        <div className="badge badge-accent">beta</div>
+        <Link href={"/"}>
+          <Image className="w-16 m-5 cursor-pointer" src={Logo} alt="logo" />
+        </Link>
       </div>
       <div className="flex-none gap-2">
-        <a className="cursor-pointer menu-title gradient-text">Courses</a>
-        <a className="cursor-pointer menu-title gradient-text">Lab</a>
-        <a className="cursor-pointer menu-title gradient-text">Offer</a>
+        <Link href={'/courses'} className="cursor-pointer text-xl menu-title text-white">Courses</Link>
+        <Link href={'/lab'} className="cursor-pointer text-xl menu-title text-white">Lab</Link>
+        <Link href={'/offer'} className="cursor-pointer text-xl menu-title text-white">Offer</Link>
+        <Link target={'_blank'} href={'https://newsletter.moderndev.io/'} className="cursor-pointer text-xl menu-title text-white">Newsletter</Link>
 
         <div className="form-control">
-          <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto gradient-input" />
+          <kbd className="kbd">/</kbd>
+          <input type="text" placeholder="Search" className="input input-bordered w-36 md:w-auto text-xl" />
         </div>
+
         {isLoggedIn ?
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -41,7 +46,7 @@ export const Navbar: React.FC<NavbarProps> = ({ isLoggedIn = false }) => {
             </ul>
           </div>
           :
-          <button className="btn btn-active gradient-button">Log In</button>
+          <button className="btn btn-primary btn-active text-xl">Log In</button>
         }
       </div>
     </div>

@@ -7,8 +7,12 @@ export default function Home() {
       <HeroComponent />
       <ChoiceSection />
       <CodeSnippet />
-      <BannerHome header="Explained Step by Step 🎓" paragraph="Built to provide the essence of each tech" description="login and start your journey" />
-      <BannerHome header="No bull**it 🙆‍♂️" paragraph="Play with free content before subscribing" description="Eevry course has valuable free lessons 🚀" />
+      <BannerHome header="Explained Step by Step 🎓"
+                  paragraph="Built to provide the essence of each tech"
+                  description="login and start your journey" />
+      <BannerHome header="No bull**it 🙆‍♂️"
+                  paragraph="Play with free content before subscribing"
+                  description="Eevry course has valuable free lessons 🚀" />
       <TechHome header="Tech You will learn"  />
     </main>
   );

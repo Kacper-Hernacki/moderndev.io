@@ -24,11 +24,11 @@ export const BannerHome: React.FC<BannerProps> = ({ header, paragraph, descripti
           variants={slideInFromLeft}>
           <h1 className="text-7xl font-bold">{header}</h1>
           <p
-            className="py-6">
+            className="py-6 mt-8 text-4xl text-accent font-bold">
             {paragraph}
           </p>
           <motion.p
-            className="py-6"
+            className="py-6 text-4xl text-primary font-bold"
             // @ts-ignore
             animate={bounceAnimation}>
             {description}

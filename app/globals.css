@@ -6,8 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --mouseX: 0;
-  --mouseY: 0;
+  --background: 18, 24, 27;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,45 +19,14 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb)) linear-gradient(
-    to bottom,
-    transparent,
-    rgb(var(--background-end-rgb))
-  ) fixed;
+  background: rgb(var(--background));
 }
 
-.gradient-button {
+.gradient-span {
   background: linear-gradient(
-    to right top,
-    #2E5ABD,
-    #63D0E7
+    to bottom,
+    #7068F4, #FF64B4, #FFD94A
   );
-  color: #000614;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.gradient-input {
-  background: linear-gradient(to right top, #2E5ABD, #63D0E7);
-  -webkit-background-clip: text;
-  background-clip: text;
-
-  border: none;
-  box-shadow: 0 0 0 1px transparent, /* Width of the border */ 0 0 0 1px #2E5ABD, /* Inner color of the gradient */ 0 0 0 1px #63D0E7;
-}
-
-.gradient-input::placeholder {
-  background: linear-gradient(to right top, #2E5ABD, #63D0E7);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.gradient-text {
-  background: linear-gradient(to right top, #2E5ABD, #63D0E7);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -66,4 +34,22 @@ body {
 
 .hexagon {
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.form-control {
+  position: relative;
+  display: inline-block;
+}
+
+.kbd {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 3px;
+  padding: 2px 4px;
+}
+
+.input {
+  padding-left: 30px !important;
 }
