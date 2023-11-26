@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Moderndev
 
-## Getting Started
+The [Moderndev](https://moderndev.io) knowledge base platform, developed with Typescript, Next.js, Tailwind, DaisyUI & Firebase.
 
-First, run the development server:
+## Contributing
 
-```bash
-npm run dev
-# or
+All static content is managed with Notion as a CMS for education content.
+
+### How to Run it
+
+First, install [Hugo Extended](https://gohugo.io/getting-started/installing/) ver `0.101.0` or greater.
+
+```
+git clone <this-repo>
+yarn add
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Check it on `http://localhost:3000/`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Developing Components
 
-## Learn More
+Create a tsx file in the `/components` directory.
 
-To learn more about Next.js, take a look at the following resources:
+```typescript
+"use client";
+//type use client, if you want to use hooks
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+interface ComponentProps {
+  header: string,
+  //other props
+}
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+export const DefaultComponent: React.FC<ComponentProps> = ({ header }) => {
 
-## Deploy on Vercel
+  return (
+    <div>{header}</div>
+  );
+};
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Export the component from `component/index.ts`:
+
+```ts
+export * from './my-custom-component.tsx';
+```
+
+## Commands
+
+- `yarn start`: Starts the server
+- `yarn dev`: Runs localhost
+- `yarn build`: Build for production
+
+## Pull Requests
+
+Each PR is deployed automatically by vercel, you can preview your changes.

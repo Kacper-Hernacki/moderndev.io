@@ -22,7 +22,7 @@ const Technologies = () => {
     <div className="technologies-container flex flex-wrap justify-center">
       {technologies?.map((tech, index) => (
         <div key={index} className={`cursor-pointer hexagon m-1  ${index > 23 ? '-translate-y-6' : ''} ${index < 12 ? 'translate-y-6' : ''} ${index > 11 ? 'translate-x-12' : ''}`}>
-          <Technology  techLogo={tech?.image} />
+          <Technology techLogo={tech?.image} />
         </div>
       ))}
     </div>

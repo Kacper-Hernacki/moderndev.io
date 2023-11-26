@@ -53,3 +53,8 @@ body {
 .input {
   padding-left: 30px !important;
 }
+
+.hexagon {
+  position: relative;
+}
+

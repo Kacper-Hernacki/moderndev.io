@@ -17,16 +17,15 @@ export default function Offer() {
         variants={slideInFromLeft}
         initial="hidden"
         whileInView="visible">
-        <div className="flex">
+        <div className="flex-col">
           <div className="flex-col w-full lg:flex-row justify-center">
-            <h1 className="mb-10 text-5xl text-center font-bold gradient-span">Schedule Quick Consultations</h1>
-            <InlineWidget url="https://calendly.com/moderndev/30min?background_color=12181b&text_color=ffffff&primary_color=605ad4" />
+            <h1 className="mb-10 overflow-hidden text-5xl text-center font-bold gradient-span">Schedule Quick Consultations</h1>
+            <InlineWidget url={process.env.NEXT_PUBLIC_CALENDLY_URL as string} />
           </div>
-          <div className="divider lg:divider-horizontal">OR</div>
-          <div className="flex-col w-full lg:flex-row justify-center">
-            <h1 className="mb-28 text-5xl text-center font-bold gradient-span">Type your requirements</h1>
+          <div className="mt-24 flex-col w-full lg:flex-row justify-center">
+            <h1 className="mb-28 text-5xl text-center font-bold gradient-span">Or type your requirements</h1>
             <Widget
-              id={"odTkYugF"}
+              id={process.env.NEXT_PUBLIC_TYPEFORM_ID as string}
               style={{ maxWidth: "800px", height: "500px",marginLeft:"auto", marginRight:"auto" }}
               onSubmit={() => {
               }}
