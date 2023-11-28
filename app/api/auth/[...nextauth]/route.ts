@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import NextAuth from "next-auth"
-import { authOptions } from "@/utils";
+import { authOptions } from "@/config";
+
 
 const handler = NextAuth(authOptions)
 

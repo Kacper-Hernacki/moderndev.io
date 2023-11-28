@@ -4,6 +4,9 @@ import "./globals.css";
 import { Footer, Navbar } from "@/components";
 import React from "react";
 import ClientProviders from "@/components/providers/client";
+import 'react-notion-x/src/styles.css'
+import 'prismjs/themes/prism-tomorrow.css'
+import 'katex/dist/katex.min.css'
 
 const inter = Inter({ subsets: ["latin"] });
 

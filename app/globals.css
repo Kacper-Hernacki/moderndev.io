@@ -58,3 +58,38 @@ body {
   position: relative;
 }
 
+/*Notion*/
+.notion__container .notion {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%) !important;
+  min-height: 100px !important;
+}
+
+.notion__container .notion-header{
+  display: none !important;
+}
+
+.notion__container .notion-frame{
+  background: #12181B;
+  color: white;
+
+}
+
+.notion__container .notion-collection-card{
+  background: #161717;
+  color: white !important;
+}
+
+.notion__container .notion-collection-card:hover{
+  background: #161717;
+}
+
+.notion__container .notion-page-title-text{
+  color: white !important;
+}
+
+.notion__container .notion-gallery-grid{
+  border: none !important;
+}

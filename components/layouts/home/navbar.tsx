@@ -4,9 +4,10 @@ import Image from "next/image";
 import Logo from "@/public/moderndev-logo.png";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/utils";
+
 import React from "react";
 import { signOut } from "next-auth/react";
+import { authOptions } from "@/config";
 
 interface NavbarProps {
   isLoggedIn: boolean;
@@ -14,7 +15,7 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = async ({ isLoggedIn = false }) => {
 const session = await getServerSession(authOptions)
   // const [isModalOpen, setModalOpen] = useState(false);
-console.log('🚀 ',session)
+
   // const openModal = () => setModalOpen(true);
   // const closeModal = () => setModalOpen(false);
 
@@ -79,7 +80,7 @@ console.log('🚀 ',session)
                 </a>
               </li>
               <li><a>Settings</a></li>
-              <li><button onClick={() => signOut()}>Logout</button></li>
+              {/*<li><button onClick={() => signOut()}>Logout</button></li>*/}
             </ul>
           </div>
           :
