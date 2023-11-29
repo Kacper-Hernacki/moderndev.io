@@ -51,9 +51,6 @@ export const HomeConversation = () => {
   );
 };
 
-HomeConversation.propTypes = {};
-
-HomeConversation.defaultProps = {};
 
 
 

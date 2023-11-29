@@ -9,19 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.13",
     "@typeform/embed-react": "^3.9.0",
     "daisyui": "^4.4.2",
     "firebase": "^10.6.0",
     "framer-motion": "^10.16.5",
     "lucide-react": "^0.292.0",
     "next": "14.0.3",
+    "next-auth": "^4.24.5",
+    "notion-client": "^6.16.0",
+    "prismjs": "^1.29.0",
     "react": "^18",
     "react-calendly": "^4.3.0",
     "react-dom": "^18",
+    "react-notion-x": "^6.16.0",
     "react-youtube": "^10.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/prismjs": "^1.26.3",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
