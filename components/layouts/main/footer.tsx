@@ -8,6 +8,7 @@ export const Footer = () => {
     <footer className="footer footer-center p-10 text-base-content rounded">
       <nav className="grid grid-flow-col gap-4">
         <Link href={'/about'}>About</Link>
+        <Link href={'/tags'}>Tags</Link>
         <Link href={'/contact'}>Contact</Link>
         <Link href={'/offer'}>Offer</Link>
         <Link href={'/courses'}>Courses</Link>

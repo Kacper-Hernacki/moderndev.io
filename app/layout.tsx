@@ -11,7 +11,7 @@ import 'katex/dist/katex.min.css'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Modern Dev",
+  title: "Modern Developer",
   description: "Become Ultimate Developer",
 };
 

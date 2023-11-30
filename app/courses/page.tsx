@@ -13,11 +13,7 @@ export default async function Courses() {
   const courses = await notionApi.databases.query({
     database_id: process.env.COURSES_NOTION_DATABASE_ID as string,
   })
-  // const data = await getData();
-  //console.log('🚀 ',courses?.results[0]?.properties?.Name?.title[0]?.text)
-  // return (
-  //   <NotionPage recordMap={data} rootPageId={"baec03e3938449a4bdba3bca7be3e6b1"} />
-  // );
+
   // @ts-ignore
   return <Grid courses={courses?.results}/>
 }

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Modal } from "@/components/layouts/main/items/modal";
 import { signOut } from "next-auth/react";
+import Image from "next/image";
 
 type Session = {
   user?: {
@@ -56,20 +57,22 @@ export const UserNav: React.FC<UserNavProps> = ({ session }) => {
       {session ?
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img alt="Tailwind CSS Navbar component" src={session?.user?.image as string} />
+            <div className="rounded-full">
+              <Image width={100} height={100} alt="user avatar" src={session?.user?.image as string} />
             </div>
           </label>
 
           <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
             <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
+              <Link href="/profile" className="justify-between">
+                <h3 className="text-xl font-bold">Profile</h3>
+                <span className="badge badge-md badge-primary">New</span>
+              </Link>
             </li>
-            <li><a>Settings</a></li>
-            <li><button onClick={() => signOut()}>Logout</button></li>
+            <li><Link href="/profile/settings"><h3 className="text-xl font-bold">Settings</h3></Link></li>
+            <li>
+              <button className="text-xl font-bold text-secondary" onClick={() => signOut()}>Logout</button>
+            </li>
           </ul>
         </div>
         :
