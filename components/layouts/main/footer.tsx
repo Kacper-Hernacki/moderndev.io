@@ -1,5 +1,5 @@
 import React from "react";
-import { Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Github, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import Link from "next/link";
 
 export const Footer = () => {
@@ -13,9 +13,11 @@ export const Footer = () => {
         <Link href={'/courses'}>Courses</Link>
         <Link href={'/products'}>Products</Link>
         <Link target="_blank" href={'https://newsletter.moderndev.io'}>Newsletter</Link>
-        <Link href={''}>Team</Link>
-        <Link href={''}>Privacy</Link>
+        <Link href={'/team'}>Team</Link>
+        <Link href={'/privacy'}>Privacy</Link>
+        <Link href={'/terms'}>Terms</Link>
         <Link href={'/faq'}>FAQ</Link>
+        <Link href={'/cookies'}>Cookies</Link>
       </nav>
 
       <nav>
@@ -31,6 +33,9 @@ export const Footer = () => {
           </Link>
           <Link target="_blank" href={'https://www.linkedin.com/in/kacper-hernacki-965161203/'}>
             <Linkedin />
+          </Link>
+          <Link target="_blank" href={'https://github.com/Kacper-Hernacki'}>
+            <Github />
           </Link>
        </div>
       </nav>

@@ -24,7 +24,7 @@ export default function RootLayout({
     <ClientProviders>
       <html lang="en">
       <body className={inter.className}>
-      <Navbar isLoggedIn={false} />
+      <Navbar />
       {children}
       <Footer />
       </body>
