@@ -1,6 +1,5 @@
 import React from "react";
-
-export default function SnippetsLayout({
+export default function AiPromptsLayout({
   children,
 }: {
   children: React.ReactNode

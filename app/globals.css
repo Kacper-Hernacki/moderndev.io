@@ -60,10 +60,11 @@ body {
 
 /*Notion*/
 .notion__container .notion {
-  position: absolute;
-  top: 120px;
-  left: 50%;
-  transform: translateX(-50%) !important;
+  margin-top: -50px;
+  /*position: absolute;*/
+  /*top: 120px;*/
+  /*left: 50%;*/
+  /*transform: translateX(-50%) !important;*/
   min-height: 100px !important;
 }
 
@@ -92,4 +93,8 @@ body {
 
 .notion__container .notion-gallery-grid{
   border: none !important;
+}
+
+.discord-button{
+  background: #5765F2;
 }
