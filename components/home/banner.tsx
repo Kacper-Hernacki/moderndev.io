@@ -10,6 +10,7 @@ interface BannerProps {
 }
 
 export const BannerHome: React.FC<BannerProps> = ({ header, paragraph, description }) => {
+  // @ts-ignore
   return (
     <motion.div
       className="hero h-screen"
@@ -28,7 +29,8 @@ export const BannerHome: React.FC<BannerProps> = ({ header, paragraph, descripti
           </p>
           <motion.p
             className="py-4 text-3xl md:text-3xl lg:text-4xl text-primary font-bold"
-            animate={bounceAnimation}>
+            animate={bounceAnimation as any}
+          >
             {description}
           </motion.p>
         </motion.div>
