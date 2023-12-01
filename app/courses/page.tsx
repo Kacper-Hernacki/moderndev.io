@@ -1,21 +1,19 @@
 import React from "react";
-import { NotionPage } from "@/components";
-import { notion, notionApi } from "@/config";
+import { notionApi } from "@/config";
 import Grid from "@/components/courses/grid";
+import { DatabaseObjectResponse, PageObjectResponse, PartialDatabaseObjectResponse, PartialPageObjectResponse, QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
 
 
-const rootNotionPageId = "6ed4abe386b84040ad06ee535fbb47c4";
-async function getData() {
-
-  return await notion.getPage(rootNotionPageId);
-}
-export default async function Courses() {
-  const courses = await notionApi.databases.query({
+export default async function Courses(): Promise<JSX.Element> {
+  const response: QueryDatabaseResponse = await notionApi.databases.query({
     database_id: process.env.COURSES_NOTION_DATABASE_ID as string,
-  })
+  });
+
+    const publishedCourses: (PageObjectResponse | PartialPageObjectResponse | PartialDatabaseObjectResponse | DatabaseObjectResponse)[] = response.results.filter((course): (PageObjectResponse | PartialPageObjectResponse | PartialDatabaseObjectResponse | DatabaseObjectResponse) =>
+      // @ts-ignore
+      course?.properties?.Published && course?.properties?.Published.checkbox,
+    );
 
   // @ts-ignore
-  return <Grid courses={courses?.results}/>
+  return <Grid courses={publishedCourses} />;
 }
-
-

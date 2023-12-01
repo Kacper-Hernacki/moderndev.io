@@ -1,17 +1,15 @@
-import { NotionPage } from "@/components/notion/renderer";
-import { notion } from "@/config";
-
-
-const rootNotionPageId = "ba76656e2eb6469b921e5ef135e44114";
-
-async function getData() {
-  return await notion.getPage(rootNotionPageId);
-}
+import { notionApi } from "@/config";
+import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
+import Grid from "@/components/snippets/grid";
+import React from "react";
 
 export default async function Snippets() {
-  const data = await getData();
+  const response: QueryDatabaseResponse = await notionApi.databases.query({
+    database_id: "91d4868604d6401daf7626bf0cb45eb8",
+ });
+
   return (
-    <NotionPage recordMap={data} rootPageId={'baec03e3938449a4bdba3bca7be3e6b1'} />
+    // @ts-ignore
+    <Grid items={response?.results} title={"Code Snippets"} />
   );
 }
-

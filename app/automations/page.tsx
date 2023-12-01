@@ -1,16 +1,14 @@
-import { NotionPage } from "@/components/notion/renderer";
-import { notion } from "@/config";
-
-const rootNotionPageId = "8ad7cca22ecb4c7bb4fafd94fd4bc7ba";
-
-async function getData() {
-  return await notion.getPage(rootNotionPageId);
-}
+import { notionApi } from "@/config";
+import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
+import Grid from "@/components/snippets/grid";
+import React from "react";
 
 export default async function Automations() {
-  const data = await getData();
+  const response: QueryDatabaseResponse = await notionApi.databases.query({
+    database_id: "d51cfb13eb6f4c049794aaf7de561de4",
+  });
   return (
-    <NotionPage recordMap={data} rootPageId={'baec03e3938449a4bdba3bca7be3e6b1'} />
+    // @ts-ignore
+    <Grid items={response?.results} title={"Automations"} />
   );
 }
-

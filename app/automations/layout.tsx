@@ -5,7 +5,7 @@ export default function AutomationsLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="pt-60 grid place-content-center w-screen h-screen">
+    <div className="pt-60 grid place-content-center w-screen">
       {children}
     </div>
   );

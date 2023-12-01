@@ -50,8 +50,8 @@ export const ChoiceSection = () => {
                 <div className="flex-col">
                   <Image width={!isMobile ? 300 : 150} src={LaptopAutomations} alt="Album" />
                   <div className="flex">
-                    <Image className="object-contain" width={!isMobile ? 70 : 35} src={MakeLogo} alt="make.com logo" />
-                    <h2 className="card-title ml-5">Automate tasks with make.com platform</h2>
+                    <Image className="object-contain mr-1" width={!isMobile ? 70 : 35} src={MakeLogo} alt="make.com logo" />
+                    <h2 className="text-md lg:card-title">Automate tasks with make.com platform</h2>
                   </div>
                 </div>
               </div>
@@ -59,7 +59,7 @@ export const ChoiceSection = () => {
                 <Image width={!isMobile ? 300 : 150} src={LaptopNotion} alt="Album" />
                 <div className="flex">
                   <Image className="object-contain" width={!isMobile ? 70 : 35} src={NotionLogo} alt="notion logo" />
-                  <h2 className="card-title ml-5">Save data & Plan tasks with Notion</h2>
+                  <h2 className="text-md lg:card-title">Save data & Plan tasks with Notion</h2>
                 </div>
               </div>
             </div>
@@ -68,14 +68,14 @@ export const ChoiceSection = () => {
                 <Image width={!isMobile ? 300 : 150} src={LaptopCron} alt="Album" />
                 <div className="flex">
                   <Image className="object-contain" width={!isMobile ? 70 : 35} src={CronLogo} alt="make.com logo" />
-                  <h2 className="card-title ml-5">Hack productivity with tools like Cron</h2>
+                  <h2 className="text-md lg:card-title">Hack productivity with tools like Cron</h2>
                 </div>
               </div>
               <div className="mt-8 flex-col max-w-sm">
                 <Image width={!isMobile ? 300 : 150} src={LaptopAi} alt="Album" />
                 <div className="flex">
                   <Image className="object-contain" width={!isMobile ? 70 : 35} src={AiLogo} alt="chatGPT logo" />
-                  <h2 className="card-title ml-5">Use AI automations & custom prompts</h2>
+                  <h2 className="text-md lg:card-title">Use AI automations & custom prompts</h2>
                 </div>
               </div>
             </div>
@@ -84,14 +84,14 @@ export const ChoiceSection = () => {
                 <Image width={!isMobile ? 300 : 150} src={LaptopWebstorm} alt="Album" />
                 <div className="flex">
                   <Image className="object-contain" width={!isMobile ? 70 : 35} src={WebstormLogo} alt="webstorm logo" />
-                  <h2 className="card-title ml-5">Write highly efficient code</h2>
+                  <h2 className="text-md lg:card-title">Write highly efficient code</h2>
                 </div>
               </div>
               <div className="mt-8 flex-col max-w-sm">
                 <Image width={!isMobile ? 300 : 150} src={LaptopCanva} alt="Album" />
                 <div className="flex">
                   <Image className="object-contain" width={!isMobile ? 70 : 35} src={CanvaLogo} alt="canva logo" />
-                  <h2 className="card-title ml-5">Work on your personal brand</h2>
+                  <h2 className="text-md lg:card-title">Work on your personal brand</h2>
                 </div>
               </div>
             </div>
@@ -104,7 +104,7 @@ export const ChoiceSection = () => {
               <Image width={!isMobile ? 300 : 150} src={LaptopWebstorm} alt="Album" />
               <div className="flex">
                 <Image className="object-contain" width={!isMobile ? 70 : 35} src={WebstormLogo} alt="webstorm logo" />
-                <h2 className="card-title ml-5">Just write code</h2>
+                <h2 className="text-md lg:card-title">Just write code</h2>
               </div>
             </div>
           </div>

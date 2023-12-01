@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "@/components/courses/card";
+import Card from "@/components/snippets/card";
 
 interface CreatedBy {
 }
@@ -7,7 +7,7 @@ interface CreatedBy {
 interface Cover {
 }
 
-interface Course {
+interface Item {
   object: string;
   id: string;
   created_time: string;
@@ -24,14 +24,15 @@ interface Course {
 }
 
 interface GridProps {
-  courses: Course[];
+  items: Item[];
+  title: string;
 }
-const Grid: React.FC<GridProps> = async ({ courses }) => {
+const Grid: React.FC<GridProps> = async ({ title, items }) => {
   return (
     <div className="flex flex-col justify-center">
-      <h1 className="mb-24 text-2xl md:text-3xl lg:text-5xl xl:text-7xl gradient-span font-bold text-center">Courses</h1>
+      <h1 className="mb-24 text-2xl md:text-3xl lg:text-5xl xl:text-7xl gradient-span font-bold text-center">{title}</h1>
       <div className="flex flex-wrap">
-        {courses.map((course, index) => (
+        {items.map((course, index) => (
           <div key={index} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-2 mb-4">
             <Card course={course} />
           </div>

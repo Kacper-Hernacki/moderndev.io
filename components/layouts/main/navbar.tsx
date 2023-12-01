@@ -29,7 +29,6 @@ export const Navbar: React.FC<NavbarProps> = ({ session }) => {
         </Link>
       </div>
 
-      {/* Toggle Button with Daisy UI Icons */}
       <label htmlFor="menu-toggle" className="z-30 btn btn-circle swap swap-rotate lg:hidden">
         <input type="checkbox" id="menu-toggle" className="hidden" onClick={() => setIsOpen(!isOpen)} />
         <svg className="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
@@ -41,14 +40,13 @@ export const Navbar: React.FC<NavbarProps> = ({ session }) => {
       </label>
 
       {/* Full-Screen Overlay Navigation */}
-      <div className={`fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center ${isOpen ? "flex" : "hidden"} lg:hidden`}>
+      <div className={`w-screen fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center ${isOpen ? "flex" : "hidden"} lg:hidden`}>
         <nav className="flex flex-col text-white text-xl space-y-4 justify-center">
           <Link href={"/courses"} className=" cursor-pointer menu-title text-white text-center text-xl">Courses</Link>
           <Link href={"/lab"} className="cursor-pointer menu-title text-white text-center text-xl">Lab</Link>
           <Link href={"/offer"} className="cursor-pointer menu-title text-white text-center text-xl">Offer</Link>
           <Link target={"_blank"} href={"https://newsletter.moderndev.io/"} className="cursor-pointer menu-title text-white text-center text-xl">Newsletter</Link>
           <Link href={"/profile"} className="cursor-pointer menu-title text-white text-center text-xl">Profile</Link>
-
           {/*@ts-ignore*/}
           <UserNav session={session} />
           {session ?

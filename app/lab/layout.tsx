@@ -7,7 +7,7 @@ export default function LabLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="grid place-content-center w-screen h-screen">
+    <div className="grid pt-40 place-content-center w-screen">
       {children}
     </div>
   );

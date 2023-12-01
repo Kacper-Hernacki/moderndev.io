@@ -65,42 +65,52 @@ body {
 }
 
 /*Notion*/
+@media (max-width: 640px) {
+  .notion__container .notion-frame {
+    max-width: 100vw !important;
+  }
+}
+
 .notion__container .notion {
   margin-top: -50px;
-  /*position: absolute;*/
-  /*top: 120px;*/
-  /*left: 50%;*/
-  /*transform: translateX(-50%) !important;*/
   min-height: 100px !important;
 }
 
-.notion__container .notion-header{
+.notion__container .notion-header {
   display: none !important;
 }
 
-.notion__container .notion-frame{
+.notion__container .notion-frame {
   background: #12181B;
   color: white;
 
 }
 
-.notion__container .notion-collection-card{
+.notion__container .notion-collection-card {
   background: #161717;
   color: white !important;
 }
 
-.notion__container .notion-collection-card:hover{
+.notion__container .notion-collection-card:hover {
   background: #161717;
 }
 
-.notion__container .notion-page-title-text{
+.notion__container .notion-page-title-text {
   color: white !important;
 }
 
-.notion__container .notion-gallery-grid{
+.notion__container .notion-gallery-grid {
   border: none !important;
 }
 
-.discord-button{
+.notion__container .notion-page-cover-wrapper {
+  display: none;
+}
+
+.notion__container .notion-collection-page-properties {
+  display: none;
+}
+
+.discord-button {
   background: #5765F2;
 }

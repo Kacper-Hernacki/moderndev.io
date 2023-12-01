@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { fadeInVariants, slideInFromLeft } from "@/utils";
 import { technologies } from "@/components/home/technologies";
@@ -10,22 +10,61 @@ interface SingleTechProps {
 }
 
 const Technology: React.FC<SingleTechProps> = ({ techLogo }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
-    <div className="hexagon">
-      {/* Responsive image size */}
-      <Image src={techLogo} alt="Tech" width={70} height={70} layout="responsive" />
-    </div>
+    <>
+      {!isMobile ?
+        <div className="hexagon">
+          <Image src={techLogo} alt="Tech" width={70} height={70} layout="responsive" />
+        </div>
+        :
+        <Image src={techLogo} alt="Tech" width={50} height={50} layout="responsive" />
+      }
+    </>
+
   );
 };
 
 const Technologies = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div className="technologies-container flex flex-wrap justify-center">
-      {technologies?.map((tech, index) => (
-        <div key={index} className={`cursor-pointer hexagon m-1 ${index > 23 ? '-translate-y-6' : ''} ${index < 12 ? 'translate-y-6' : ''} ${index > 11 ? 'translate-x-12' : ''}`}>
-          <Technology techLogo={tech?.image} />
-        </div>
-      ))}
+    <div className="flex flex-wrap justify-center gap-2">
+      {!isMobile ?
+        <>
+          {technologies?.map((tech, index) => (
+            <div key={index} className={`hexagon m-1 ${index > 23 ? "-translate-y-6" : ""} ${index < 12 ? "translate-y-6" : ""} ${index > 11 ? "translate-x-12" : ""}`}>
+              <Technology techLogo={tech?.image} />
+            </div>
+          ))}
+        </>
+        :
+        <>
+          {technologies?.map((tech, index) => (
+            <div key={index} className="w-12">
+              <Technology techLogo={tech?.image} />
+            </div>
+          ))}
+        </>
+      }
     </div>
   );
 };
