@@ -42,7 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({ session }) => {
 
       {/* Full-Screen Overlay Navigation */}
       <div className={`fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center ${isOpen ? "flex" : "hidden"} lg:hidden`}>
-        <nav className="flex flex-col text-white text-xl space-y-4 w-screen justify-center">
+        <nav className="flex flex-col text-white text-xl space-y-4 justify-center">
           <Link href={"/courses"} className=" cursor-pointer menu-title text-white text-center text-xl">Courses</Link>
           <Link href={"/lab"} className="cursor-pointer menu-title text-white text-center text-xl">Lab</Link>
           <Link href={"/offer"} className="cursor-pointer menu-title text-white text-center text-xl">Offer</Link>
