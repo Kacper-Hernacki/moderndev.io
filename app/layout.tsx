@@ -7,6 +7,8 @@ import ClientProviders from "@/components/providers/client";
 import 'react-notion-x/src/styles.css'
 import 'prismjs/themes/prism-tomorrow.css'
 import 'katex/dist/katex.min.css'
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/config";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,16 +17,18 @@ export const metadata: Metadata = {
   description: "Become Ultimate Developer",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const session = await getServerSession(authOptions);
   return (
     <ClientProviders>
       <html lang="en">
       <body className={inter.className}>
-      <Navbar />
+      {/*@ts-ignore*/}
+      <Navbar session={session} />
       {children}
       <Footer />
       </body>

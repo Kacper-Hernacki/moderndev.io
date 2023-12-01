@@ -4,10 +4,9 @@ import { motion } from "framer-motion";
 import { fadeInVariants, slideInFromLeft } from "@/utils";
 
 export const CodeSnippet = ({}) => {
-
   return (
     <motion.div
-      className="hero h-screen"
+      className="hero min-h-screen"
       initial="hidden"
       whileInView="visible"
       variants={fadeInVariants}>
@@ -15,9 +14,11 @@ export const CodeSnippet = ({}) => {
         initial="hidden"
         whileInView="visible"
         variants={slideInFromLeft}
-        className="mt-52">
-        <h3 className="text-7xl mb-24 font-bold text-center gradient-span">Turn on modern developing mode</h3>
-        <div className="mockup-code bg-gray-600 max-w-2xl ml-auto mr-auto">
+        className="mt-20 max-w-sm md:mt-40 lg:mt-52">
+        <h3 className="text-4xl md:text-6xl lg:text-7xl mb-12 md:mb-18 lg:mb-24 font-bold text-center gradient-span">
+          Turn on modern developing mode
+        </h3>
+        <div className="mockup-code bg-gray-600 max-w-sm lg:max-w-2xl ml-auto mr-auto p-4 md:p-6">
           <pre data-prefix="$"><code>npm i moderndev</code></pre>
           <pre data-prefix=">" className="text-warning"><code>installing...</code></pre>
           <pre data-prefix=">" className="text-primary"><code>Done!</code></pre>
@@ -26,11 +27,5 @@ export const CodeSnippet = ({}) => {
         </div>
       </motion.div>
     </motion.div>
-
   );
 };
-
-
-
-
-
