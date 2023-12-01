@@ -6,7 +6,7 @@ export default function TagsLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="pt-52 grid place-content-center w-screen max-w-screen-xl ml-auto mr-auto">
+    <div className="grid place-content-center w-screen max-w-screen-xl h-screen ml-auto mr-auto">
       {children}
     </div>
   );
