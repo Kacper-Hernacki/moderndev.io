@@ -58,6 +58,12 @@ body {
   position: relative;
 }
 
+@media (max-width: 640px) {
+  .hexagon {
+    width: 50px;
+  }
+}
+
 /*Notion*/
 .notion__container .notion {
   margin-top: -50px;

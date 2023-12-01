@@ -3,7 +3,7 @@ import { BannerHome, ChoiceSection, CodeSnippet, HeroComponent, HomeConversation
 export default function Home() {
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-4 lg:p-24">
       <HeroComponent />
       <BannerHome header="👨‍💻You are a Developer"
                   paragraph="You can learn anything, much faster than others"

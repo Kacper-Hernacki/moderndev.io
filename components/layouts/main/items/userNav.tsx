@@ -83,7 +83,7 @@ export const UserNav: React.FC<UserNavProps> = ({ session }) => {
       {session ?
         <UserDropDown session={session} />
         :
-        <Link href="/login">
+        <Link className="mx-auto" href="/login">
           <button className="btn btn-primary btn-active text-xl">Log In</button>
         </Link>
       }

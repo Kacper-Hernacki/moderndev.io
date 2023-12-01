@@ -51,9 +51,13 @@ export const Navbar: React.FC<NavbarProps> = ({ session }) => {
 
           {/*@ts-ignore*/}
           <UserNav session={session} />
-          <button onClick={() => signOut()} className="btn btn-secondary btn-md text-xl text-white max-w-md mx-auto">Log
-            Out
-          </button>
+          {session ?
+            <button onClick={() => signOut()} className="btn btn-secondary btn-md text-xl text-white max-w-md mx-auto">Log
+              Out
+            </button>
+            :
+            null
+          }
         </nav>
       </div>
 
