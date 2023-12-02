@@ -59,7 +59,7 @@ const Card: React.FC<CardProps> = async ({ course }) => {
   return (
     <div className="card lg:w-72 bg-base-100 shadow-xl">
       <figure>
-        <img src={cover?.file?.url} alt={title} className="w-full object-cover" />
+        <img src={cover?.file?.url} alt={title} className="p-4 w-full object-cover" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
