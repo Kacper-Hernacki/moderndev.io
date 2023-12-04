@@ -114,3 +114,7 @@ body {
 .discord-button {
   background: #5765F2;
 }
+
+.black-and-white {
+  filter: grayscale(100%);
+}

@@ -30,10 +30,11 @@ export default async function RootLayout({
       <html lang="en">
       <body className={inter.className}>
       <FirebaseAuthProvider>
-        {/*@ts-ignore*/}
-        <Navbar session={session} />
-        {children}
-        <Footer />
+
+          {/*@ts-ignore*/}
+          <Navbar session={session} />
+          {children}
+          <Footer />
       </FirebaseAuthProvider>
       </body>
       </html>

@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import extractIdFromUrl from "@/utils/notion";
 
 interface Tag {
   id: string;
@@ -13,7 +12,7 @@ interface CreatedBy {
 interface Cover {
 }
 
-interface Course {
+interface Item {
   object: string;
   id: string;
   created_time: string;
@@ -35,34 +34,43 @@ interface Course {
   public_url: string;
 }
 interface CardProps {
-  course: Course;
+  item: Item;
+  link: string;
+  isCompleted: boolean;
 }
 
 const renderColor = (color: string): string => {
   const colorMap: { [key: string]: string } = {
-    green: 'bg-green-500',
-    yellow: 'bg-yellow-500',
-    red: 'bg-red-500',
-    blue: 'bg-blue-500',
+    green: "bg-green-500",
+    yellow: "bg-yellow-500",
+    red: "bg-red-500",
+    blue: "bg-blue-500",
   };
 
-  return colorMap[color] || 'bg-gray-500';
-}
+  return colorMap[color] || "bg-gray-500";
+};
 
-const Card: React.FC<CardProps> = async ({ course }) => {
-  const { id, cover, created_time, last_edited_time, properties, public_url } = course;
+const Card: React.FC<CardProps> = async ({ item, link, isCompleted }) => {
+  const { id, cover, created_time, last_edited_time, properties, public_url } = item;
   const title = properties?.Name?.title[0]?.plain_text;
   const description = properties?.Description?.rich_text[0]?.plain_text;
-  const courseId = extractIdFromUrl(public_url);
   const tags = properties?.Tags?.multi_select;
 
   return (
     <div className="card lg:w-72 bg-base-100 shadow-xl">
       <figure>
-        <img src={cover?.file?.url} alt={title} className="p-4 w-full object-cover" />
+        <img
+          src={cover?.file?.url}
+          alt={title}
+          className={`p-4 w-full object-cover ${isCompleted ? "black-and-white" : ""}`}
+        />
       </figure>
       <div className="card-body">
+        {isCompleted ?
+          <div className="badge badge-sm badge-neutral">Completed</div>
+          : null}
         <h2 className="card-title">{title}</h2>
+
         <p>{description}</p>
         <div className="mt-4">
           {tags?.map(tag => (
@@ -70,8 +78,8 @@ const Card: React.FC<CardProps> = async ({ course }) => {
           ))}
         </div>
         <div className="card-actions justify-end">
-          <Link href={`/courses/${courseId}`}>
-            <button className="btn btn-primary">Start Now</button>
+          <Link href={`${link}/content/${id}`}>
+            <button className={`btn ${isCompleted ? "black-and-white" : "btn-primary"}`}>{isCompleted ? "Check again" : "Start Now"}</button>
           </Link>
         </div>
       </div>

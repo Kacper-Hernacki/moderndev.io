@@ -49,6 +49,9 @@ const renderColor = (color: string): string => {
   return colorMap[color] || 'bg-gray-500';
 }
 
+function replaceSpacesWithUnderscores(str:string) {
+  return str.replace(/\s+/g, '_');
+}
 const Card: React.FC<CardProps> = async ({ course }) => {
   const { id, cover, created_time, last_edited_time, properties, public_url } = course;
   const title = properties?.Name?.title[0]?.plain_text;
@@ -70,7 +73,7 @@ const Card: React.FC<CardProps> = async ({ course }) => {
           ))}
         </div>
         <div className="card-actions justify-end">
-          <Link href={`/courses/${courseId}`}>
+          <Link href={`/courses/${courseId}?title=${replaceSpacesWithUnderscores(title)}`}>
             <button className="btn btn-primary">Start Now</button>
           </Link>
         </div>

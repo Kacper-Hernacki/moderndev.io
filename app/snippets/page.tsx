@@ -10,6 +10,6 @@ export default async function Snippets() {
 
   return (
     // @ts-ignore
-    <Grid items={response?.results} title={"Code Snippets"} />
+    <Grid items={response?.results} title={"Code Snippets"} linkCore="/snippets" />
   );
 }
