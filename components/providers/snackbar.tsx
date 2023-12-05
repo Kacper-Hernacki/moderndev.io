@@ -2,14 +2,14 @@
 import React from "react";
 import { SnackbarProvider } from "notistack";
 
-export default function CoursesLayout({
+export default function SnackbarComponentProvider({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-      <div className="pt-32 lg:pt-52 px-4 grid place-content-center w-screen max-w-screen-xl ml-auto mr-auto">
+    <SnackbarProvider maxSnack={3}>
         {children}
-      </div>
+    </SnackbarProvider>
   );
 }

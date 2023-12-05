@@ -9,7 +9,7 @@ export default function Team() {
         <div className="grid place-content-center">
           <p className="mt-4 text-sm lg:text-xl text-center">Do you want to discuss different topics? Ask for advices? Or even hire somebody or find a
             job? </p>
-          <a className="max-w-sm mx-auto" target="_blank" href="https://discord.gg/BRGpGhqANH">
+          <a className="max-w-sm mx-auto" target="_blank" href="https://discord.gg/afxu67Nv">
             <button className="btn discord-button mt-10 text-white w-full">
               <Image width={32} src={DiscordIcon} alt="discord" />
               Join the server

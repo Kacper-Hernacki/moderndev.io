@@ -10,6 +10,8 @@ import "katex/dist/katex.min.css";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/config";
 import FirebaseAuthProvider from "@/components/providers/firebase";
+import SnackbarComponentProvider from "@/components/providers/snackbar";
+import SubscriptionProvider from "@/components/providers/subscription";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,11 +32,14 @@ export default async function RootLayout({
       <html lang="en">
       <body className={inter.className}>
       <FirebaseAuthProvider>
-
-          {/*@ts-ignore*/}
-          <Navbar session={session} />
-          {children}
-          <Footer />
+        <SubscriptionProvider>
+          <SnackbarComponentProvider>
+            {/*@ts-ignore*/}
+            <Navbar session={session} />
+            {children}
+            <Footer />
+          </SnackbarComponentProvider>
+        </SubscriptionProvider>
       </FirebaseAuthProvider>
       </body>
       </html>
