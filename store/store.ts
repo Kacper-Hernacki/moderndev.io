@@ -1,10 +1,6 @@
 import { create } from "zustand";
+import { Subscription } from "@/types/subscription";
 
-interface Subscription {
-  paid: boolean;
-  validTill: Date;
-  userId: string;
-}
 interface SubscriptionState {
   subscription: Subscription | null | undefined;
   setSubscription: (subscription: Subscription | null) => void;

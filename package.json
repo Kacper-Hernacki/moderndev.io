@@ -27,6 +27,7 @@
     "react-dom": "^18",
     "react-notion-x": "^6.16.0",
     "react-youtube": "^10.1.0",
+    "stripe": "^14.7.0",
     "zustand": "^4.4.7"
   },
   "devDependencies": {

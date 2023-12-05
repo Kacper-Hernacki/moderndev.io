@@ -5,6 +5,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { UserNav } from "@/components/layouts/main/items";
 import { signOut } from "next-auth/react";
+import { UpgradeBanner } from "@/components/layouts/main/items/upgradeBanner";
 
 type Session = {
   user?: {
@@ -61,6 +62,7 @@ export const Navbar: React.FC<NavbarProps> = ({ session }) => {
 
       {/* Desktop Navigation */}
       <div className="hidden lg:flex flex-none gap-2">
+        <UpgradeBanner />
         <Link href={"/courses"} className="cursor-pointer text-xl menu-title text-white">Courses</Link>
         <Link href={"/lab"} className="cursor-pointer text-xl menu-title text-white">Lab</Link>
         <Link href={"/offer"} className="cursor-pointer text-xl menu-title text-white">Offer</Link>
