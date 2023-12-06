@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 export const UpgradeBanner = () => {
   const subscription = useSubscriptionStore((state) => state.subscription);
-  const isPro = subscription?.role === "pro";
+  const isPro = subscription?.status === "active";
   const router = useRouter();
 
   if (subscription === undefined || isPro) return null;

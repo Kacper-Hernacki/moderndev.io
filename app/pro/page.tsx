@@ -4,6 +4,8 @@ import { CheckIcon } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { addDoc, collection, onSnapshot } from "@firebase/firestore";
 import { db } from "@/firebase";
+import { useSubscriptionStore } from "@/store/store";
+import ManageAccountButton from "@/components/subscription/manage";
 
 interface PricingPlan {
   id: number;
@@ -35,6 +37,9 @@ const pricingPlans: PricingPlan[] = [
 export default function Pro() {
   const { data: session } = useSession();
   const [loading, setLoading] = useState(false);
+  const subscription = useSubscriptionStore((state) => state.subscription);
+  const isPro = subscription?.status === "active";
+
   async function createCheckoutSession(priceId: string | undefined) {
     if (!session?.user.id) return;
     setLoading(true);
@@ -67,7 +72,7 @@ export default function Pro() {
         Pro Subscription
       </h1>
       <div className="flex flex-wrap gap-8">
-        {pricingPlans.map((plan,index) => (
+        {pricingPlans.map((plan, index) => (
           <div key={index} className="indicator">
             {plan?.badge ? <span className="indicator-item badge badge-xl badge-secondary">preferred</span> : null}
             <div key={plan.id} className="card w-96 bg-base-100 shadow-xl">
@@ -84,9 +89,11 @@ export default function Pro() {
                     <li className="flex items-center" key={index}><CheckIcon className="mr-2" /> {feature}</li>
                   ))}
                 </ul>
-                {plan?.priceId ? <div className="card-actions justify-end">
+                {plan?.priceId && !isPro ? <div className="card-actions justify-end">
                   <button onClick={() => createCheckoutSession(plan?.priceId)} className="btn btn-primary">{loading ? "loading..." : "Subscribe"}</button>
-                </div> : null}
+                </div> : isPro ?
+                  <ManageAccountButton />
+                  : null}
               </div>
             </div>
           </div>
