@@ -21,7 +21,7 @@ type UserNavProps = {
 
 const UserDropDown: React.FC<UserNavProps> = ({ session }) => {
   const subscription = useSubscriptionStore((state) => state.subscription);
-  const isPro = subscription?.role === "pro";
+  const isPro = subscription?.status === "active";
   return (
     <div className="dropdown dropdown-end hidden lg:block">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -31,7 +31,7 @@ const UserDropDown: React.FC<UserNavProps> = ({ session }) => {
       </label>
 
       <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-        {!isPro ?
+        {isPro ?
           <li>
             <h3 className="text-xl font-bold text-accent"><StarIcon /> PRO Member</h3>
           </li>
