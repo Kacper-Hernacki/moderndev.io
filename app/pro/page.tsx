@@ -92,7 +92,8 @@ export default function Pro() {
                 {plan?.priceId && !isPro ? <div className="card-actions justify-end">
                   <button onClick={() => createCheckoutSession(plan?.priceId)} className="btn btn-primary">{loading ? "loading..." : "Subscribe"}</button>
                 </div> : isPro ?
-                  <ManageAccountButton />
+                   // <ManageAccountButton />
+                  <></>
                   : null}
               </div>
             </div>

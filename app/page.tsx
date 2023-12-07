@@ -1,10 +1,14 @@
 import { BannerHome, ChoiceSection, CodeSnippet, HeroComponent, HomeConversation, TechHome } from "@/components/home";
+import ManageAccountButton from "@/components/subscription/manage";
+import React from "react";
 
 export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-4 lg:p-24">
+
       <HeroComponent />
+      <ManageAccountButton />
       <BannerHome header="👨‍💻You are a Developer"
                   paragraph="You can learn anything, much faster than others"
                   description="Do not waste your potential" />
