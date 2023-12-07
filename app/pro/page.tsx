@@ -1,11 +1,7 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import { CheckIcon } from "lucide-react";
-import { useSession } from "next-auth/react";
-import { addDoc, collection, onSnapshot } from "@firebase/firestore";
-import { db } from "@/firebase";
-import { useSubscriptionStore } from "@/store/store";
-import ManageAccountButton from "@/components/subscription/manage";
+import CheckoutButton from "@/components/subscription/checkout";
+
 
 interface PricingPlan {
   id: number;
@@ -35,37 +31,7 @@ const pricingPlans: PricingPlan[] = [
 ];
 
 export default function Pro() {
-  const { data: session } = useSession();
-  const [loading, setLoading] = useState(false);
-  const subscription = useSubscriptionStore((state) => state.subscription);
-  const isPro = subscription?.status === "active";
 
-  async function createCheckoutSession(priceId: string | undefined) {
-    if (!session?.user.id) return;
-    setLoading(true);
-
-    const docRef = await addDoc(collection(db, "customers", session.user.id, "checkout_sessions"), {
-      price: priceId,
-      success_url: `${window.location.origin}/`,
-      cancel_url: `${window.location.origin}/`,
-    });
-
-    return onSnapshot(docRef, snap => {
-      const data = snap.data();
-      const url = data?.url;
-      const error = data?.error;
-
-      if (error) {
-        alert(`An error occured: ${error?.message}`);
-        setLoading(false);
-      }
-
-      if (url) {
-        window.location.assign(url);
-        setLoading(false);
-      }
-    });
-  }
   return (
     <div className="flex flex-col justify-center">
       <h1 className="mb-24 text-2xl md:text-3xl lg:text-5xl xl:text-7xl gradient-span font-bold text-center">
@@ -86,15 +52,17 @@ export default function Pro() {
                 <h2 className="card-title">{plan.title || "Default Title"}</h2>
                 <ul>
                   {plan.features.map((feature, index) => (
-                    <li className="flex items-center" key={index}><CheckIcon className="mr-2" /> {feature}</li>
+                    <li className="flex items-center" key={index}>
+                      <CheckIcon className="mr-2" /> {feature}
+                    </li>
                   ))}
                 </ul>
-                {plan?.priceId && !isPro ? <div className="card-actions justify-end">
-                  <button onClick={() => createCheckoutSession(plan?.priceId)} className="btn btn-primary">{loading ? "loading..." : "Subscribe"}</button>
-                </div> : isPro ?
-                   // <ManageAccountButton />
-                  <></>
-                  : null}
+                {/*@ts-ignore*/}
+                {plan?.priceId ?
+                  <CheckoutButton priceId={plan?.priceId} />
+                  :
+                  null
+                }
               </div>
             </div>
           </div>

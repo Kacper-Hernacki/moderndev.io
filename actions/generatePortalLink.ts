@@ -12,7 +12,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 });
 
 export async function generatePortalLink() {
-  console.log('🚀 xdxd')
   const session = await getServerSession(authOptions);
   const host = headers().get("host");
 
@@ -21,9 +20,7 @@ export async function generatePortalLink() {
   const {
     user: { id },
   } = session;
-  const firestore = getFirestore();
-  //const doc = await firestore.collection("customers").doc(id).get();
-   const returnUrl = process.env.NODE_ENV === "development" ? `http://${host}/register` : `https://${host}/register`;
+   const returnUrl = process.env.NODE_ENV === "development" ? `http://${host}/profile` : `https://${host}/profile`;
    const doc = await adminDb.collection("customers").doc(id).get();
   if (!doc.data) return console.error("No customer record found with userId: ", id);
    const stripeId = doc.data()!.stripeId;
