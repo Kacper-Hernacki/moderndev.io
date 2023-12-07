@@ -51,7 +51,7 @@ const Technologies = () => {
       {!isMobile ?
         <div className="technologies-container flex flex-wrap justify-center">
           {technologies?.map((tech, index) => (
-            <div key={index} className={`cursor-pointer hexagon m-1  ${index < 16 ? 'translate-y-6' : ''} ${index > 15 ? 'translate-x-1 translate-y-1' : ''}`}>
+            <div key={index} className={`cursor-pointer hexagon m-1  ${index < 15 ? 'translate-y-6' : ''} ${index > 15 ? 'translate-x-1 translate-y-1' : ''}`}>
               <Technology techLogo={tech?.image} />
             </div>
           ))}
