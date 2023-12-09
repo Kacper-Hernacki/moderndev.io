@@ -1,4 +1,6 @@
-## Moderndev
+# Moderndev
+
+![Moderndev GitHub Repository](public/github-repo.png)
 
 The [Moderndev](https://moderndev.io) knowledge base platform, developed with Typescript, Next.js, Tailwind, DaisyUI & Firebase.
 
