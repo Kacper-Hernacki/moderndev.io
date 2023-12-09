@@ -4,6 +4,9 @@ import { useSession } from "next-auth/react";
 import { onSnapshot } from "@firebase/firestore";
 import { useSubscriptionStore } from "@/store/store";
 import { subscriptionRef } from "@/lib/converters/subscription";
+import * as NProgress from "nprogress";
+import { router } from "next/client";
+import { usePathname } from "next/navigation";
 
 export default function SubscriptionProvider({
   children,
@@ -12,6 +15,11 @@ export default function SubscriptionProvider({
 }) {
   const { data: session } = useSession();
   const setSubscription = useSubscriptionStore(state => state.setSubscription);
+  const pathname = usePathname()
+
+  useEffect(() => {
+    NProgress.done();
+  }, [pathname, router]);
 
   useEffect(() => {
     if (!session) return;

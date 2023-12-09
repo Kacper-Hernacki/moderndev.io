@@ -12,6 +12,8 @@ import { authOptions } from "@/config";
 import FirebaseAuthProvider from "@/components/providers/firebase";
 import SnackbarComponentProvider from "@/components/providers/snackbar";
 import SubscriptionProvider from "@/components/providers/subscription";
+import NextTopLoader from 'nextjs-toploader';
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +33,9 @@ export default async function RootLayout({
     <ClientProviders>
       <html lang="en">
       <body className={inter.className}>
+      <NextTopLoader
+        easing="ease"
+        showSpinner={false}/>
       <FirebaseAuthProvider>
         <SubscriptionProvider>
           <SnackbarComponentProvider>

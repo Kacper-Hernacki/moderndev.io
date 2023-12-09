@@ -22,6 +22,17 @@ body {
   background: rgb(var(--background));
 }
 
+#nprogress .bar {
+  background: linear-gradient(
+    to right,
+    #7068F4, #FF64B4, #FFD94A
+  )!important;
+}
+#nprogress .peg{
+  display: none !important;
+}
+
+
 .gradient-span {
   background: linear-gradient(
     to bottom,

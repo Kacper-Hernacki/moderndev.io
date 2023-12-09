@@ -21,6 +21,7 @@ type NavbarProps = {
 
 export const Navbar: React.FC<NavbarProps> = ({ session }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <div className="navbar bg-transparent pr-4 absolute z-10 w-full">
@@ -43,11 +44,21 @@ export const Navbar: React.FC<NavbarProps> = ({ session }) => {
       {/* Full-Screen Overlay Navigation */}
       <div className={`w-screen fixed inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center ${isOpen ? "flex" : "hidden"} lg:hidden`}>
         <nav className="flex flex-col text-white text-xl space-y-4 justify-center">
-          <Link href={"/courses"} className=" cursor-pointer menu-title text-white text-center text-xl">Courses</Link>
-          <Link href={"/lab"} className="cursor-pointer menu-title text-white text-center text-xl">Lab</Link>
-          <Link href={"/offer"} className="cursor-pointer menu-title text-white text-center text-xl">Offer</Link>
-          <Link target={"_blank"} href={"https://newsletter.moderndev.io/"} className="cursor-pointer menu-title text-white text-center text-xl">Newsletter</Link>
-          <Link href={"/profile"} className="cursor-pointer menu-title text-white text-center text-xl">Profile</Link>
+          <Link href={"/courses"}>
+            <div onClick={closeMenu} className="cursor-pointer menu-title text-white text-center text-xl">Courses</div>
+          </Link>
+          <Link href={"/lab"}>
+            <div onClick={closeMenu} className="cursor-pointer menu-title text-white text-center text-xl">Lab</div>
+          </Link>
+          <Link href={"/offer"}>
+            <div onClick={closeMenu} className="cursor-pointer menu-title text-white text-center text-xl">Offer</div>
+          </Link>
+          <Link target={"_blank"} href={"https://newsletter.moderndev.io/"}>
+            <div onClick={closeMenu} className="cursor-pointer menu-title text-white text-center text-xl">Newsletter</div>
+          </Link>
+          <Link href={"/profile"}>
+            <div onClick={closeMenu} className="cursor-pointer menu-title text-white text-center text-xl">Profile</div>
+          </Link>
           {/*@ts-ignore*/}
           <UserNav session={session} />
           {session ?
