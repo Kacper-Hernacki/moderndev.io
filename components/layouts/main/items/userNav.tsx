@@ -17,9 +17,14 @@ type Session = {
 
 type UserNavProps = {
   session: Session | null;
+  closeMenu: () => void;
 };
 
-const UserDropDown: React.FC<UserNavProps> = ({ session }) => {
+type UserDropProps = {
+  session: Session | null;
+};
+
+const UserDropDown: React.FC<UserDropProps> = ({ session }) => {
   const subscription = useSubscriptionStore((state) => state.subscription);
   const isPro = subscription?.status === "active";
   return (
@@ -52,11 +57,18 @@ const UserDropDown: React.FC<UserNavProps> = ({ session }) => {
 
 };
 
-export const UserNav: React.FC<UserNavProps> = ({ session }) => {
+export const UserNav: React.FC<UserNavProps> = ({ session,closeMenu }) => {
 
   const [isModalOpen, setModalOpen] = useState(false);
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
+
+  const closeBothModals = ()=>{
+    setModalOpen(false);
+    if (typeof closeMenu === 'function') {
+      closeMenu();
+    }
+  }
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -98,7 +110,7 @@ export const UserNav: React.FC<UserNavProps> = ({ session }) => {
       }
 
       {isModalOpen && (
-        <Modal closeModal={closeModal} />
+        <Modal closeModal={closeModal} closeBothModals={closeBothModals} />
       )}
     </>
   );

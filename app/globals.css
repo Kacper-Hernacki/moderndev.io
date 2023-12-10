@@ -32,6 +32,14 @@ body {
   display: none !important;
 }
 
+.no-cursor {
+  cursor: none !important;
+}
+
+.no-pointer {
+  pointer-events: none;
+}
+
 
 .gradient-span {
   background: linear-gradient(

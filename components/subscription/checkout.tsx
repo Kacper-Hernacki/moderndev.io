@@ -20,27 +20,29 @@ export default function CheckoutButton({ priceId }: CheckoutButtonProps) {
     if (!session?.user.id) return;
     setLoading(true);
 
-    const docRef = await addDoc(collection(db, "customers", session.user.id, "checkout_sessions"), {
-      price: priceId,
-      success_url: `${window.location.origin}/`,
-      cancel_url: `${window.location.origin}/`,
-    });
+    if (typeof window !== 'undefined'){
+      const docRef = await addDoc(collection(db, "customers", session.user.id, "checkout_sessions"), {
+        price: priceId,
+        success_url: `${window.location.origin}/`,
+        cancel_url: `${window.location.origin}/`,
+      });
 
-    return onSnapshot(docRef, snap => {
-      const data = snap.data();
-      const url = data?.url;
-      const error = data?.error;
+      return onSnapshot(docRef, snap => {
+        const data = snap.data();
+        const url = data?.url;
+        const error = data?.error;
 
-      if (error) {
-        alert(`An error occured: ${error?.message}`);
-        setLoading(false);
-      }
+        if (error) {
+          alert(`An error occured: ${error?.message}`);
+          setLoading(false);
+        }
 
-      if (url) {
-        window.location.assign(url);
-        setLoading(false);
-      }
-    });
+        if (url) {
+          window.location.assign(url);
+          setLoading(false);
+        }
+      });
+    }
   }
 
   return (
