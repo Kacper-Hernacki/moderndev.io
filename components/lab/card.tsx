@@ -70,6 +70,7 @@ const Card: React.FC<CardProps> = async ({ course }) => {
 
   const cardClass = accessToCourse? '' : 'grayscale';
 
+
   return (
     <div className={`card lg:w-72 bg-base-100 shadow-xl relative overflow-hidden ${cardClass}`}>
       {isProRestricted ? (
@@ -81,7 +82,7 @@ const Card: React.FC<CardProps> = async ({ course }) => {
         null
       }
       <figure>
-        <img src={cover?.file?.url} alt={title} className="w-full object-cover" />
+        <img src={cover?.file?.url || cover?.external?.url} alt={title} className="w-full object-cover" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
