@@ -71,7 +71,6 @@ const Card: React.FC<CardProps> = async ({ course }) => {
 
   return (
     <div className={`card lg:w-72 bg-base-100 shadow-xl relative overflow-hidden ${cardClass}`}>
-
     {isProRestricted ? (
           <div className="absolute top-8 -right-12 transform -translate-y-1/2 rotate-45 bg-red-500 text-white py-1 px-16 text-xs font-bold uppercase">
             Pro

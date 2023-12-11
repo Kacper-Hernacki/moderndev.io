@@ -1,6 +1,9 @@
+"use client"
 import React from "react";
 import Link from "next/link";
 import extractIdFromUrl from "@/utils/notion";
+import { useRouter } from "next/navigation";
+import { useSubscriptionStore } from "@/store/store";
 
 interface Tag {
   id: string;
@@ -29,6 +32,7 @@ interface Course {
       multi_select: Tag[];
     },
     Name?: any;
+    isPro: any
     Description?: any
   };
   url: string;
@@ -54,13 +58,28 @@ function replaceSpacesWithUnderscores(str:string) {
 }
 const Card: React.FC<CardProps> = async ({ course }) => {
   const { id, cover, created_time, last_edited_time, properties, public_url } = course;
+  const subscription = useSubscriptionStore((state) => state.subscription);
+  const isPro = subscription?.status === "active";
+  const isProRestricted = properties?.isPro?.checkbox;
   const title = properties?.Name?.title[0]?.plain_text;
   const description = properties?.Description?.rich_text[0]?.plain_text;
   const courseId = extractIdFromUrl(public_url);
   const tags = properties?.Tags?.multi_select;
+  const accessToCourse = isProRestricted ? isPro : !isProRestricted;
+  const  router  = useRouter();
+
+  const cardClass = accessToCourse? '' : 'grayscale';
 
   return (
-    <div className="card lg:w-72 bg-base-100 shadow-xl">
+    <div className={`card lg:w-72 bg-base-100 shadow-xl relative overflow-hidden ${cardClass}`}>
+      {isProRestricted ? (
+          <div className="absolute top-8 -right-12 transform -translate-y-1/2 rotate-45 bg-red-500 text-white py-1 px-16 text-xs font-bold uppercase">
+            Pro
+          </div>
+        )
+        :
+        null
+      }
       <figure>
         <img src={cover?.file?.url} alt={title} className="w-full object-cover" />
       </figure>
@@ -73,9 +92,7 @@ const Card: React.FC<CardProps> = async ({ course }) => {
           ))}
         </div>
         <div className="card-actions justify-end">
-          <Link href={`/snippets/content/${id}?title=${replaceSpacesWithUnderscores(title)}`}>
-            <button className="btn btn-primary">Start Now</button>
-          </Link>
+            <button disabled={!accessToCourse} onClick={() => router.push(`/snippets/content/${id}?title=${replaceSpacesWithUnderscores(title)}`)} className="btn btn-primary">Start Now</button>
         </div>
       </div>
     </div>
