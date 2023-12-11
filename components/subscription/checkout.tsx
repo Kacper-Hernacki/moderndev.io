@@ -5,6 +5,7 @@ import { db } from "@/firebase";
 import { useSession } from "next-auth/react";
 import { useSubscriptionStore } from "@/store/store";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface CheckoutButtonProps {
   priceId: string;
@@ -15,16 +16,15 @@ export default function CheckoutButton({ priceId }: CheckoutButtonProps) {
   const [loading, setLoading] = useState(false);
   const subscription = useSubscriptionStore((state) => state.subscription);
   const isPro = subscription?.status === "active";
-
+  const router = useRouter();
   async function createCheckoutSession(priceId: string | undefined) {
     if (!session?.user.id) return;
     setLoading(true);
 
-    if (typeof window !== 'undefined'){
       const docRef = await addDoc(collection(db, "customers", session.user.id, "checkout_sessions"), {
         price: priceId,
-        success_url: `${window.location.origin}/`,
-        cancel_url: `${window.location.origin}/`,
+        success_url: `${process.env.BASE_URL}/`,
+        cancel_url: `${process.env.BASE_URL}/`,
       });
 
       return onSnapshot(docRef, snap => {
@@ -38,11 +38,11 @@ export default function CheckoutButton({ priceId }: CheckoutButtonProps) {
         }
 
         if (url) {
-          window.location.assign(url);
+          router.push(url);
           setLoading(false);
         }
       });
-    }
+
   }
 
   return (
