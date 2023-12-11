@@ -1,5 +1,8 @@
+"use client"
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useSubscriptionStore } from "@/store/store";
 
 interface Tag {
   id: string;
@@ -28,6 +31,7 @@ interface Item {
       multi_select: Tag[];
     },
     Name?: any;
+    isPro: any
     Description?: any
   };
   url: string;
@@ -51,13 +55,30 @@ const renderColor = (color: string): string => {
 };
 
 const Card: React.FC<CardProps> = async ({ item, link, isCompleted }) => {
+  const subscription = useSubscriptionStore((state) => state.subscription);
+  const isPro = subscription?.status === "active";
   const { id, cover, created_time, last_edited_time, properties, public_url } = item;
+  const isProRestricted = properties?.isPro?.checkbox;
   const title = properties?.Name?.title[0]?.plain_text;
   const description = properties?.Description?.rich_text[0]?.plain_text;
   const tags = properties?.Tags?.multi_select;
+  const accessToCourse = isProRestricted ? isPro : !isProRestricted;
+  const  router  = useRouter();
+
+  const cardClass = accessToCourse? '' : 'grayscale';
+
 
   return (
-    <div className="card lg:w-72 bg-base-100 shadow-xl">
+    <div className={`card lg:w-72 bg-base-100 shadow-xl relative overflow-hidden ${cardClass}`}>
+
+      {isProRestricted ? (
+          <div className="absolute top-8 -right-12 transform -translate-y-1/2 rotate-45 bg-red-500 text-white py-1 px-16 text-xs font-bold uppercase">
+            Pro
+          </div>
+        )
+        :
+        null
+      }
       <figure>
         <img
           src={cover?.file?.url}
@@ -67,7 +88,7 @@ const Card: React.FC<CardProps> = async ({ item, link, isCompleted }) => {
       </figure>
       <div className="card-body">
         {isCompleted ?
-          <div className="badge badge-sm badge-neutral">Completed</div>
+          <div className="badge badge-sm badge-neutral bg-green-300 border-green-300 text-green-950">Completed</div>
           : null}
         <h2 className="card-title">{title}</h2>
 
@@ -78,9 +99,7 @@ const Card: React.FC<CardProps> = async ({ item, link, isCompleted }) => {
           ))}
         </div>
         <div className="card-actions justify-end">
-          <Link href={`${link}/content/${id}`}>
-            <button className={`btn ${isCompleted ? "black-and-white" : "btn-primary"}`}>{isCompleted ? "Check again" : "Start Now"}</button>
-          </Link>
+            <button onClick={() => router.push(`${link}/content/${id}`)} disabled={!accessToCourse} className={`btn ${isCompleted ? "black-and-white" : "btn-primary"}`}>{isCompleted ? "Check again" : "Start Now"}</button>
         </div>
       </div>
     </div>

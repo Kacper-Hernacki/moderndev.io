@@ -17,7 +17,7 @@ export default function Home() {
                   description="login and start your journey" />
       <BannerHome header="No bull**it 🙆‍♂️"
                   paragraph="Play with free content before subscribing"
-                  description="Eevry course has valuable free lessons 🚀" />
+                  description="Check free lessons 🚀" />
       <TechHome header="Tech You will learn"  />
     </main>
   );

@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
-import Link from "next/link";
 import extractIdFromUrl from "@/utils/notion";
+import { useSubscriptionStore } from "@/store/store";
+import { useRouter } from "next/navigation";
 
 interface Tag {
   id: string;
@@ -29,7 +31,8 @@ interface Course {
       multi_select: Tag[];
     },
     Name?: any;
-    Description?: any
+    Description?: any;
+    isPro: any
   };
   url: string;
   public_url: string;
@@ -40,27 +43,43 @@ interface CardProps {
 
 const renderColor = (color: string): string => {
   const colorMap: { [key: string]: string } = {
-    green: 'bg-green-500',
-    yellow: 'bg-yellow-500',
-    red: 'bg-red-500',
-    blue: 'bg-blue-500',
+    green: "bg-green-500",
+    yellow: "bg-yellow-500",
+    red: "bg-red-500",
+    blue: "bg-blue-500",
   };
 
-  return colorMap[color] || 'bg-gray-500';
-}
+  return colorMap[color] || "bg-gray-500";
+};
 
-function replaceSpacesWithUnderscores(str:string) {
-  return str.replace(/\s+/g, '_');
+function replaceSpacesWithUnderscores(str: string) {
+  return str.replace(/\s+/g, "_");
 }
 const Card: React.FC<CardProps> = async ({ course }) => {
+  const subscription = useSubscriptionStore((state) => state.subscription);
+  const isPro = subscription?.status === "active";
   const { id, cover, created_time, last_edited_time, properties, public_url } = course;
   const title = properties?.Name?.title[0]?.plain_text;
+  const isProRestricted = properties?.isPro?.checkbox;
   const description = properties?.Description?.rich_text[0]?.plain_text;
   const courseId = extractIdFromUrl(public_url);
   const tags = properties?.Tags?.multi_select;
+  const accessToCourse = isProRestricted ? isPro : !isProRestricted;
+  const  router  = useRouter();
+
+  const cardClass = accessToCourse? '' : 'grayscale';
 
   return (
-    <div className="card lg:w-72 bg-base-100 shadow-xl">
+    <div className={`card lg:w-72 bg-base-100 shadow-xl relative overflow-hidden ${cardClass}`}>
+
+    {isProRestricted ? (
+          <div className="absolute top-8 -right-12 transform -translate-y-1/2 rotate-45 bg-red-500 text-white py-1 px-16 text-xs font-bold uppercase">
+            Pro
+          </div>
+        )
+        :
+        null
+      }
       <figure>
         <img src={cover?.file?.url} alt={title} className="w-full object-cover" />
       </figure>
@@ -73,9 +92,9 @@ const Card: React.FC<CardProps> = async ({ course }) => {
           ))}
         </div>
         <div className="card-actions justify-end">
-          <Link href={`/courses/${courseId}?title=${replaceSpacesWithUnderscores(title)}`}>
-            <button className="btn btn-primary">Start Now</button>
-          </Link>
+          <button onClick={() => router.push(`/courses/${courseId}?title=${replaceSpacesWithUnderscores(title)}`)} disabled={!accessToCourse} className="btn btn-primary">Start
+            Now
+          </button>
         </div>
       </div>
     </div>
