@@ -5,7 +5,6 @@ import { onSnapshot } from "@firebase/firestore";
 import { useSubscriptionStore } from "@/store/store";
 import { subscriptionRef } from "@/lib/converters/subscription";
 import * as NProgress from "nprogress";
-import { router } from "next/client";
 import { usePathname } from "next/navigation";
 
 export default function SubscriptionProvider({
@@ -19,7 +18,7 @@ export default function SubscriptionProvider({
 
   useEffect(() => {
     NProgress.done();
-  }, [pathname, router]);
+  }, [pathname]);
 
   useEffect(() => {
     if (!session) return;
