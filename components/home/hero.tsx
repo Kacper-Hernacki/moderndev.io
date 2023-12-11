@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeInVariants, slideInFromLeft } from "@/utils";
+import Link from "next/link";
 
 export const HeroComponent = ({}) => {
   return (
@@ -22,7 +23,9 @@ export const HeroComponent = ({}) => {
           <p className="text-xl py-4 lg:text-2xl lg:py-6 font-bold">
             Tech is constantly changing, do not stay behind!
           </p>
-          <button className="btn btn-accent btn-md lg:btn-lg">Get Started</button>
+          <Link href='/courses'>
+            <button className="btn btn-accent btn-md lg:btn-lg">Get Started</button>
+          </Link>
         </div>
       </motion.div>
     </motion.div>

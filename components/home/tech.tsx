@@ -21,15 +21,7 @@ const Technology: React.FC<SingleTechProps> = ({ techLogo }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   return (
-    <>
-      {!isMobile ?
-        <div className="hexagon">
-          <Image src={techLogo} alt="Tech" width={70} height={70} />
-        </div>
-        :
-        <Image src={techLogo} alt="Tech" width={50} height={50} layout="responsive" />
-      }
-    </>
+    <Image src={techLogo} alt="Tech" width={50} height={50} layout="responsive" />
 
   );
 };
@@ -48,23 +40,13 @@ const Technologies = () => {
 
   return (
     <div className="flex flex-wrap justify-center gap-2">
-      {!isMobile ?
-        <div className="technologies-container flex flex-wrap justify-center">
-          {technologies?.map((tech, index) => (
-            <div key={index} className={`cursor-pointer hexagon m-1  ${index < 15 ? 'translate-y-6' : ''} ${index > 15 ? 'translate-x-1 translate-y-1' : ''}`}>
-              <Technology techLogo={tech?.image} />
-            </div>
-          ))}
+
+      {technologies?.map((tech, index) => (
+        <div key={index} className="w-12">
+          <Technology techLogo={tech?.image} />
         </div>
-        :
-        <>
-          {technologies?.map((tech, index) => (
-            <div key={index} className="w-12">
-              <Technology techLogo={tech?.image} />
-            </div>
-          ))}
-        </>
-      }
+      ))}
+
     </div>
   );
 };

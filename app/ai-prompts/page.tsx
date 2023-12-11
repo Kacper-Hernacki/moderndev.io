@@ -1,6 +1,6 @@
 import { notionApi } from "@/config";
 import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
-import Grid from "@/components/snippets/grid";
+import Grid from "@/components/lab/grid";
 import React from "react";
 
 export default async function AiPrompts() {

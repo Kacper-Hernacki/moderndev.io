@@ -2,10 +2,12 @@
 import Image from "next/image";
 import Logo from "@/public/moderndev-logo.png";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { UserNav } from "@/components/layouts/main/items";
 import { signOut } from "next-auth/react";
 import { UpgradeBanner } from "@/components/layouts/main/items/upgradeBanner";
+import { usePathname } from "next/navigation";
+
 
 type Session = {
   user?: {
@@ -21,18 +23,33 @@ type NavbarProps = {
 
 export const Navbar: React.FC<NavbarProps> = ({ session }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname()
   const closeMenu = () => setIsOpen(false);
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      closeMenu();
+    };
+
+    handleRouteChange();
+  }, [pathname]);
 
   return (
     <div className="navbar bg-transparent pr-4 absolute z-10 w-full">
       <div className="flex-1 z-30">
         <Link href={"/"}>
-          <Image className="w-12 lg:w-16 m-5 cursor-pointer" src={Logo} alt="logo" />
+          <Image onClick={closeMenu} className="w-12 lg:w-16 m-5 cursor-pointer" src={Logo} alt="logo" />
         </Link>
       </div>
 
       <label htmlFor="menu-toggle" className="z-30 btn btn-circle swap swap-rotate lg:hidden">
-        <input type="checkbox" id="menu-toggle" className="hidden" onClick={() => setIsOpen(!isOpen)} />
+        <input
+          type="checkbox"
+          id="menu-toggle"
+          className="hidden"
+          checked={isOpen}
+          onChange={() => setIsOpen(!isOpen)}
+        />
         <svg className="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
           <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
         </svg>
@@ -78,8 +95,8 @@ export const Navbar: React.FC<NavbarProps> = ({ session }) => {
         <Link href={"/lab"} className="cursor-pointer text-xl menu-title text-white">Lab</Link>
         <Link href={"/offer"} className="cursor-pointer text-xl menu-title text-white">Offer</Link>
         <Link target={"_blank"} href={"https://newsletter.moderndev.io/"} className="cursor-pointer text-xl menu-title text-white">Newsletter</Link>
-        {/*@ts-ignore*/}
-        <UserNav session={session} />
+
+        <UserNav session={session} closeMenu={closeMenu}/>
       </div>
     </div>
   );

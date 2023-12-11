@@ -1,0 +1,22 @@
+export const pages = [
+  { name: "About", path: "/about", preview: "About us and our mission." },
+  { name: "AI Prompts", path: "/ai-prompts", preview: "Generate AI prompts easily." },
+  { name: "Automations", path: "/automations", preview: "Automate your workflows." },
+  { name: "Contact", path: "/contact", preview: "Get in touch with us." },
+  { name: "Contributions", path: "/contributions", preview: "Contribute to our project." },
+  { name: "Cookies", path: "/cookies", preview: "Learn about our cookie policy." },
+  { name: "Courses", path: "/courses", preview: "Browse our professional courses." },
+  { name: "FAQ", path: "/faq", preview: "Frequently Asked Questions." },
+  { name: "Lab", path: "/lab", preview: "Explore our lab experiments." },
+  { name: "Login", path: "/login", preview: "Log in to your account." },
+  { name: "Offer", path: "/offer", preview: "Check out our special offers." },
+  { name: "Privacy", path: "/privacy", preview: "Understand our privacy policy." },
+  { name: "Pro", path: "/pro", preview: "Learn about our pro services." },
+  { name: "Products", path: "/products", preview: "Discover our products." },
+  { name: "Profile", path: "/profile", preview: "Manage your profile settings." },
+  { name: "Snippets", path: "/snippets", preview: "Code snippets for developers." },
+  { name: "Tags", path: "/tags", preview: "Browse by tags." },
+  { name: "Team", path: "/team", preview: "Meet our team members." },
+  { name: "Terms", path: "/terms", preview: "Read our terms and conditions." },
+  { name: "User", path: "/user", preview: "User account information." }
+];
