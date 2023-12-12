@@ -21,27 +21,28 @@ export default function CheckoutButton({ priceId }: CheckoutButtonProps) {
     if (!session?.user.id) return;
     setLoading(true);
 
-      const docRef = await addDoc(collection(db, "customers", session.user.id, "checkout_sessions"), {
-        price: priceId,
-        success_url: `${process.env.BASE_URL}/`,
-        cancel_url: `${process.env.BASE_URL}/`,
-      });
+    const docRef = await addDoc(collection(db, "customers", session.user.id, "checkout_sessions"), {
+      price: priceId,
+      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
+      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
+      allow_promotion_codes: true,
+    });
 
-      return onSnapshot(docRef, snap => {
-        const data = snap.data();
-        const url = data?.url;
-        const error = data?.error;
+    return onSnapshot(docRef, snap => {
+      const data = snap.data();
+      const url = data?.url;
+      const error = data?.error;
 
-        if (error) {
-          alert(`An error occured: ${error?.message}`);
-          setLoading(false);
-        }
+      if (error) {
+        alert(`An error occured: ${error?.message}`);
+        setLoading(false);
+      }
 
-        if (url) {
-          router.push(url);
-          setLoading(false);
-        }
-      });
+      if (url) {
+        router.push(url);
+        setLoading(false);
+      }
+    });
 
   }
 
