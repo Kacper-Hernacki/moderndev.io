@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/Kacper-Hernacki/moderndev.io/compare/v1.3.0...v1.4.0) (2023-12-13)
+
+
+### Features
+
+* **collaborators:** improved building collab ([29ea749](https://github.com/Kacper-Hernacki/moderndev.io/commit/29ea749ab90643acc970a4e04aaadf3ac8cc1087))
+* **collaborators:** UI & backend ([7daa26d](https://github.com/Kacper-Hernacki/moderndev.io/commit/7daa26d16e2c1ad88a82b1476b1bdf26208740af))
+
 # [1.3.0](https://github.com/Kacper-Hernacki/moderndev.io/compare/v1.2.0...v1.3.0) (2023-12-13)
 
 
