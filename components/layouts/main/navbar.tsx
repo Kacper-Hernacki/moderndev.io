@@ -35,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({ session }) => {
   }, [pathname]);
 
   return (
-    <div className="navbar bg-transparent pr-4 absolute z-10 w-full">
+    <div className="navbar bg-transparent pr-8 absolute z-10 w-full">
       <div className="flex-1 z-30">
         <Link href={"/"}>
           <Image onClick={closeMenu} className="w-12 lg:w-16 m-5 cursor-pointer" src={Logo} alt="logo" />
