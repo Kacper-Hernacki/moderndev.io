@@ -12,6 +12,11 @@
   "dependencies": {
     "@auth/firebase-adapter": "^1.0.7",
     "@notionhq/client": "^2.2.13",
+    "@semantic-release/commit-analyzer": "^11.1.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^9.2.5",
+    "@semantic-release/npm": "^11.0.2",
+    "@semantic-release/release-notes-generator": "^12.1.0",
     "@sentry/nextjs": "^7.86.0",
     "@typeform/embed-react": "^3.9.0",
     "daisyui": "^4.4.2",
