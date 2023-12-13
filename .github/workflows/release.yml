@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node.js and Yarn
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           registry-url: 'https://registry.yarnpkg.com'
 
       - name: Install dependencies
@@ -32,4 +32,3 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-
