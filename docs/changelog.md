@@ -1,3 +1,11 @@
+# [1.6.0](https://github.com/Kacper-Hernacki/moderndev.io/compare/v1.5.0...v1.6.0) (2023-12-13)
+
+
+### Features
+
+* vercel analytics ([fd1d8e4](https://github.com/Kacper-Hernacki/moderndev.io/commit/fd1d8e4085f84fb1c4684847346560439c520faa))
+* vercel analytics ([#17](https://github.com/Kacper-Hernacki/moderndev.io/issues/17)) ([f0d74e9](https://github.com/Kacper-Hernacki/moderndev.io/commit/f0d74e93aac5828d3b0f831710081218bfc9687e))
+
 # [1.5.0](https://github.com/Kacper-Hernacki/moderndev.io/compare/v1.4.0...v1.5.0) (2023-12-13)
 
 
