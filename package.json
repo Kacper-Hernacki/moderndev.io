@@ -19,6 +19,7 @@
     "@semantic-release/release-notes-generator": "^12.1.0",
     "@sentry/nextjs": "^7.86.0",
     "@typeform/embed-react": "^3.9.0",
+    "@vercel/analytics": "^1.1.1",
     "daisyui": "^4.4.2",
     "firebase": "^10.7.0",
     "firebase-admin": "^11.11.1",
