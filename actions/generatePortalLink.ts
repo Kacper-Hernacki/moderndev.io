@@ -5,7 +5,6 @@ import { getServerSession } from "next-auth";
 import { headers } from "next/headers";
  import { adminDb } from "@/firebase-admin";
 import { redirect } from "next/navigation";
-import { getFirestore } from "firebase-admin/firestore";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2023-10-16",
