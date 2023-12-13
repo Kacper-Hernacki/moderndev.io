@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/Kacper-Hernacki/moderndev.io/compare/v1.4.0...v1.5.0) (2023-12-13)
+
+
+### Features
+
+* commitizen init ([066ad55](https://github.com/Kacper-Hernacki/moderndev.io/commit/066ad554d1d76834f344a267b3da04a6c66b9ced))
+* **pro:** added badge in navbar ([46c362b](https://github.com/Kacper-Hernacki/moderndev.io/commit/46c362b6f5405bae456101d22063e526a1dfd529))
+* **pro:** added badge in navbar ([#16](https://github.com/Kacper-Hernacki/moderndev.io/issues/16)) ([e7ba4d1](https://github.com/Kacper-Hernacki/moderndev.io/commit/e7ba4d12f34e0b6a383cde3823116fc94516c03e))
+
 # [1.4.0](https://github.com/Kacper-Hernacki/moderndev.io/compare/v1.3.0...v1.4.0) (2023-12-13)
 
 
