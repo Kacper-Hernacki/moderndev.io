@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-export async function fetchCollaborators() {
+async function fetchCollaborators() {
   const response = await fetch(
     'https://api.github.com/repos/Kacper-Hernacki/moderndev.io/collaborators',
     {
