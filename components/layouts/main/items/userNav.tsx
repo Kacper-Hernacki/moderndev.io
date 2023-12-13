@@ -29,12 +29,18 @@ const UserDropDown: React.FC<UserDropProps> = ({ session }) => {
   const isPro = subscription?.status === "active";
   return (
     <div className="dropdown dropdown-end hidden lg:block">
-      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-        <div className="rounded-full">
-          <Image width={100} height={100} alt="user avatar" src={session?.user?.image as string} />
-        </div>
-      </label>
-
+      <div className="avatar indicator">
+        {isPro ?
+          <span className="indicator-item badge badge-xs badge-accent font-bold font-xs">PRO</span>
+        :
+        null
+        }
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar ">
+          <div className="rounded-full">
+            <Image width={80} height={80} alt="user avatar" src={session?.user?.image as string} />
+          </div>
+        </label>
+      </div>
       <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
         {isPro ?
           <li>
@@ -57,18 +63,18 @@ const UserDropDown: React.FC<UserDropProps> = ({ session }) => {
 
 };
 
-export const UserNav: React.FC<UserNavProps> = ({ session,closeMenu }) => {
+export const UserNav: React.FC<UserNavProps> = ({ session, closeMenu }) => {
 
   const [isModalOpen, setModalOpen] = useState(false);
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
-  const closeBothModals = ()=>{
+  const closeBothModals = () => {
     setModalOpen(false);
-    if (typeof closeMenu === 'function') {
+    if (typeof closeMenu === "function") {
       closeMenu();
     }
-  }
+  };
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
