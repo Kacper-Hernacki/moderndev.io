@@ -9,7 +9,7 @@ module.exports = {
     [
       "@semantic-release/git",
       {
-        "assets": ["package.json", "npm-shrinkwrap.json"]
+        "assets": ["package.json"]
       }
     ]
   ],
