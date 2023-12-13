@@ -27,7 +27,7 @@ export default function CheckoutButton({ priceId }: CheckoutButtonProps) {
       cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
       allow_promotion_codes: true,
     });
-
+//
     return onSnapshot(docRef, snap => {
       const data = snap.data();
       const url = data?.url;
