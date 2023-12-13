@@ -1,3 +1,11 @@
+# [1.7.0](https://github.com/Kacper-Hernacki/moderndev.io/compare/v1.6.0...v1.7.0) (2023-12-13)
+
+
+### Features
+
+* speed insights ([37eb5c7](https://github.com/Kacper-Hernacki/moderndev.io/commit/37eb5c75e089c4ac33d0fc0ef6e2c1b9d5e4175e))
+* speed insights ([#18](https://github.com/Kacper-Hernacki/moderndev.io/issues/18)) ([eee3f67](https://github.com/Kacper-Hernacki/moderndev.io/commit/eee3f67a1d89a2ab012ffc962a04a5b5cd7956c8))
+
 # [1.6.0](https://github.com/Kacper-Hernacki/moderndev.io/compare/v1.5.0...v1.6.0) (2023-12-13)
 
 
