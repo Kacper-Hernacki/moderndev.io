@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Modal } from "@/components/layouts/main/items/modal";
-import { signOut } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import { useSubscriptionStore } from "@/store/store";
 import { StarIcon } from "lucide-react";
@@ -110,9 +110,7 @@ export const UserNav: React.FC<UserNavProps> = ({ session, closeMenu }) => {
       {session ?
         <UserDropDown session={session} />
         :
-        <Link className="mx-auto" href="/login">
-          <button className="btn btn-primary btn-active text-xl">Log In</button>
-        </Link>
+          <button onClick={()=> signIn()} className="btn btn-primary btn-active text-xl">Log In</button>
       }
 
       {isModalOpen && (
