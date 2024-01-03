@@ -43,9 +43,12 @@ const UserDropDown: React.FC<UserDropProps> = ({ session }) => {
       </div>
       <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
         {isPro ?
-          <li>
-            <h3 className="text-xl font-bold text-accent"><StarIcon /> PRO Member</h3>
-          </li>
+          <Link href="/pro-membership">
+            <li>
+              <h3 className="text-xl font-bold text-accent"><StarIcon /> PRO Member</h3>
+            </li>
+          </Link>
+
           : null}
         <li>
           <Link href="/profile" className="justify-between">
