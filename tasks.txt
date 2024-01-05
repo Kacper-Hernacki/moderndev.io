@@ -1,5 +1,4 @@
 - Loading skeletons desktop and mobile,
-- pro membership,
 - check payments,
 - regulamin about funds refund,
 - content,
