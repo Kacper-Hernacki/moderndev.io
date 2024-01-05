@@ -102,8 +102,16 @@ body {
 .notion__container .notion-frame {
   background: #12181B;
   color: white;
-
 }
+
+.notion__container .notion-page {
+  padding-bottom: 0 !important;
+}
+
+.notion__container .notion-page-scroller {
+  min-height: auto !important;
+}
+
 
 .notion__container .notion-collection-card {
   background: #161717;
@@ -116,6 +124,7 @@ body {
 
 .notion__container .notion-page-title-text {
   color: white !important;
+
 }
 
 .notion__container .notion-gallery-grid {

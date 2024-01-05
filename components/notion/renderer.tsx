@@ -1,10 +1,8 @@
 "use client"
 import { NotionRenderer } from "react-notion-x";
 import Link from "next/link";
-
-
-
 import dynamic from 'next/dynamic'
+import { ExtendedRecordMap } from "notion-types";
 
 const Code = dynamic(() =>
   import('react-notion-x/build/third-party/code').then((m) => m.Code)
@@ -29,12 +27,14 @@ const Modal = dynamic(
     ssr: false
   }
 )
+interface NotionPageProps {
+  recordMap: ExtendedRecordMap;
+  rootPageId: string;
+}
 export const NotionPage = ({
-  // @ts-ignore
   recordMap,
-  // @ts-ignore
   rootPageId
-}) => {
+}: NotionPageProps) => {
   if (!recordMap) {
     return null;
   }

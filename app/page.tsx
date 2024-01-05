@@ -9,7 +9,7 @@ export default function Home() {
       <BannerHome header="👨‍💻You are a Developer"
                   paragraph="You can learn anything, much faster than others"
                   description="Do not waste your potential" />
-      <HomeConversation/>
+      {/*<HomeConversation/>*/}
       <ChoiceSection />
       <CodeSnippet />
       <BannerHome header="Explained Step by Step 🎓"

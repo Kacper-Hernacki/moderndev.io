@@ -55,7 +55,7 @@ export default function CompleteModule({ moduleLessonId, moduleId }: { moduleLes
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="mt-12 flex flex-col">
       {isLoading ?
         <button className="btn btn-large btn-disabled w-full" disabled>Loading lesson
           status <span className="loading loading-dots loading-lg"></span></button>
