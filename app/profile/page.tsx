@@ -2,7 +2,6 @@ import { getServerSession, Session } from "next-auth";
 import { authOptions } from "@/config";
 import { NextPage } from "next";
 import React from "react";
-import Link from "next/link";
 import ManageAccountButton from "@/components/subscription/manage";
 import { DeleteModal } from "@/components/profile";
 
@@ -25,9 +24,6 @@ const Profile: NextPage = async () => {
       <div className="my-8">
         <h1 className="mb-8 text-5xl font-bold">Manage Account</h1>
         <ManageAccountButton />
-        <Link href="/profile/settings">
-          <button className="mt-4 btn btn-primary text-xl">Go to settings</button>
-        </Link>
       </div>
       <DeleteModal />
     </div>

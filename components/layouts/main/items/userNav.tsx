@@ -56,7 +56,7 @@ const UserDropDown: React.FC<UserDropProps> = ({ session }) => {
             <span className="badge badge-md badge-primary">New</span>
           </Link>
         </li>
-        <li><Link href="/profile/settings"><h3 className="text-xl font-bold">Settings</h3></Link></li>
+        {/*<li><Link href="/profile/settings"><h3 className="text-xl font-bold">Settings</h3></Link></li>*/}
         <li>
           <button className="text-xl font-bold text-secondary" onClick={() => signOut()}>Logout</button>
         </li>

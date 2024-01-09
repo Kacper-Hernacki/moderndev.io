@@ -1,43 +1,22 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import { deleteUser, getAuth } from "@firebase/auth";
+import { useSnackbar } from "notistack";
+import { signOut } from "next-auth/react";
+import { deleteDoc, doc, setDoc } from "@firebase/firestore";
+import { serverTimestamp } from "@firebase/database";
+import { db } from "@/firebase";
+import admin from "firebase-admin";
+import { Modal } from "@/components/profile/modal";
 
-interface ModalProps {
-  closeModal: () => void;
-}
 
-const Modal: React.FC<ModalProps> = ({ closeModal }) => {
-  const deleteUserFromFirestore = async () => {
-    const auth = getAuth();
-    const user = auth.currentUser;
-
-    if (user) {
-      deleteUser(user).then(() => {
-        // User deleted.
-      }).catch((err) => {
-        console.log(err);
-      });
-    }
-  };
-
-  return (
-    <div
-      className="bg-base-100 modal modal-open fixed inset-0 z-50"
-      onClick={closeModal}
-    >
-      <h1 className="text-secondary mb-8 text-5xl font-bold">
-        Are you sure you want to delete this account?
-      </h1>
-      <button onClick={deleteUserFromFirestore} className="btn btn-secondary text-xl">Delete</button>
-    </div>
-  );
-};
-export function DeleteModal(){
+export function DeleteModal() {
   const [isModalOpen, setModalOpen] = useState(false);
+  const { enqueueSnackbar } = useSnackbar();
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
-  return(
+  return (
     <>
       <div className="mt-32 my-8">
         <h1 className="text-secondary mb-8 text-5xl font-bold">Delete this account</h1>
@@ -45,8 +24,8 @@ export function DeleteModal(){
       </div>
 
       {isModalOpen && (
-        <Modal closeModal={closeModal} />
+        <Modal closeModal={closeModal} enqueueSnackbar={enqueueSnackbar} />
       )}
     </>
-  )
+  );
 }
