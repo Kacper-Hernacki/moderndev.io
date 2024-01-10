@@ -8,7 +8,7 @@ import { Widget } from "@typeform/embed-react";
 export default function Offer() {
   return (
     <motion.div
-      className="pt-52 pb-32"
+      className="pt-32 pb-32"
       variants={fadeInVariants}
       initial="hidden"
       whileInView="visible">

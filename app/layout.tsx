@@ -12,9 +12,9 @@ import { authOptions } from "@/config";
 import FirebaseAuthProvider from "@/components/providers/firebase";
 import SnackbarComponentProvider from "@/components/providers/snackbar";
 import SubscriptionProvider from "@/components/providers/subscription";
-import NextTopLoader from 'nextjs-toploader';
+import NextTopLoader from "nextjs-toploader";
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,14 +36,18 @@ export default async function RootLayout({
       <body className={inter.className}>
       <NextTopLoader
         easing="ease"
-        showSpinner={false}/>
+        showSpinner={false} />
       <FirebaseAuthProvider>
         <SubscriptionProvider>
           <SnackbarComponentProvider>
-            {/*@ts-ignore*/}
-            <Navbar session={session} />
-            {children}
-            <Footer />
+            <div className="flex flex-col min-h-screen">
+              {/*@ts-ignore*/}
+              <Navbar session={session} />
+              <div className="flex-grow">
+                {children}
+              </div>
+              <Footer />
+            </div>
           </SnackbarComponentProvider>
         </SubscriptionProvider>
       </FirebaseAuthProvider>

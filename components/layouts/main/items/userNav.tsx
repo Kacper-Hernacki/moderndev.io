@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Modal } from "@/components/layouts/main/items/modal";
-import { signOut } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import { useSubscriptionStore } from "@/store/store";
 import { StarIcon } from "lucide-react";
@@ -43,9 +43,12 @@ const UserDropDown: React.FC<UserDropProps> = ({ session }) => {
       </div>
       <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
         {isPro ?
-          <li>
-            <h3 className="text-xl font-bold text-accent"><StarIcon /> PRO Member</h3>
-          </li>
+          <Link href="/pro-membership">
+            <li>
+              <h3 className="text-xl font-bold text-accent"><StarIcon /> PRO Member</h3>
+            </li>
+          </Link>
+
           : null}
         <li>
           <Link href="/profile" className="justify-between">
@@ -53,7 +56,7 @@ const UserDropDown: React.FC<UserDropProps> = ({ session }) => {
             <span className="badge badge-md badge-primary">New</span>
           </Link>
         </li>
-        <li><Link href="/profile/settings"><h3 className="text-xl font-bold">Settings</h3></Link></li>
+        {/*<li><Link href="/profile/settings"><h3 className="text-xl font-bold">Settings</h3></Link></li>*/}
         <li>
           <button className="text-xl font-bold text-secondary" onClick={() => signOut()}>Logout</button>
         </li>
@@ -110,9 +113,7 @@ export const UserNav: React.FC<UserNavProps> = ({ session, closeMenu }) => {
       {session ?
         <UserDropDown session={session} />
         :
-        <Link className="mx-auto" href="/login">
-          <button className="btn btn-primary btn-active text-xl">Log In</button>
-        </Link>
+          <button onClick={()=> signIn()} className="btn btn-primary btn-active text-xl">Log In</button>
       }
 
       {isModalOpen && (

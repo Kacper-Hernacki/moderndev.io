@@ -1,5 +1,4 @@
 import React from "react";
-import { Footer, Navbar } from "@/components";
 
 export default function OfferLayout({
   children,
@@ -7,8 +6,8 @@ export default function OfferLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
-        {children}
-    </>
+    <div className="lg:pt-12 px-4 grid place-content-center w-screen max-w-screen-xl ml-auto mr-auto">
+      {children}
+    </div>
   );
 }

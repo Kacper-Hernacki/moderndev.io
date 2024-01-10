@@ -79,19 +79,15 @@ const Grid: React.FC<GridProps> = async ({ title, items, linkCore, coursesProgre
   }
 
   return (
-    <div className="flex flex-col justify-center">
-      <div className="mb-24 flex justify-between items-center">
-        <button className="btn btn-neutral w-40 bg-transparent text-white border-0" type="button" onClick={() => router.back()}>
-          <ChevronLeft /> Go Back
-        </button>
-        <h1 className="text-2xl md:text-3xl lg:text-5xl xl:text-7xl gradient-span font-bold text-center">{title}</h1>
-        <div className="w-40" />
-      </div>
-
+    <div className="flex flex-col justify-center p-4 lg:p-8">
+      <button className="btn btn-neutral w-40 bg-transparent text-white border-0" type="button" onClick={() => router.back()}>
+        <ChevronLeft /> Go Back
+      </button>
+      <h1 className="my-4 w-full text-3xl lg:text-5xl xl:text-7xl gradient-span font-bold text-center">{title}</h1>
       {coursesProgressEnabled ?
         <>
-          <div className="stats shadow mx-auto">
-            <div className="stat">
+          <div className="stats shadow mx-auto max-w-screen-md">
+            <div className="stat hidden md:block">
               <div className="stat-title">Total Modules</div>
               <div className="stat-value text-primary">{numberOfModules}</div>
             </div>
@@ -109,9 +105,9 @@ const Grid: React.FC<GridProps> = async ({ title, items, linkCore, coursesProgre
         null
       }
 
-      <div className="flex flex-wrap">
+      <div className="mt-4 flex flex-wrap">
         {items.map((item, index) => (
-          <div key={index} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-2 mb-4">
+          <div key={index} className={`w-full sm:w-1/2 md:w-1/3 lg:w-1/${items?.length < 4 ? items?.length : 4} px-2 mb-4`}>
             <Card item={item} link={linkCore} isCompleted={isLessonCompleted(item.id)} />
           </div>
         ))}
@@ -119,5 +115,5 @@ const Grid: React.FC<GridProps> = async ({ title, items, linkCore, coursesProgre
     </div>
   );
 };
-
+//
 export default Grid;
