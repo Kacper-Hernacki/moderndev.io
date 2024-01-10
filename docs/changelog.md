@@ -1,3 +1,15 @@
+# [1.8.0](https://github.com/Kacper-Hernacki/moderndev.io/compare/v1.7.0...v1.8.0) (2024-01-10)
+
+
+### Features
+
+* **delete:** profile delete modal ([a936e25](https://github.com/Kacper-Hernacki/moderndev.io/commit/a936e256449bdedeaba1c657cafcc5de403403b6))
+* **loading:** loading skeleton for courses ([c8f0e51](https://github.com/Kacper-Hernacki/moderndev.io/commit/c8f0e51cb1e74c3a6a9d1863e94b031f7c4acb39))
+* **loading:** loading skeleton for courses ([#19](https://github.com/Kacper-Hernacki/moderndev.io/issues/19)) ([681578a](https://github.com/Kacper-Hernacki/moderndev.io/commit/681578a5e9119dfd59418307f1dd4577f67689bb))
+* **loadings:** corrections in skeletons ([34dfa05](https://github.com/Kacper-Hernacki/moderndev.io/commit/34dfa05e3b2e8bb5bc03a217eb2ed73c0a769a39))
+* **ui:** final improvements 🚀 ([a76572c](https://github.com/Kacper-Hernacki/moderndev.io/commit/a76572c42dfdc6598fb6cdcd484a33f464706ba7))
+* **ui:** ui improvements ([60a20e2](https://github.com/Kacper-Hernacki/moderndev.io/commit/60a20e2b4249b514ad3c532e65df111aee1b24a7))
+
 # [1.7.0](https://github.com/Kacper-Hernacki/moderndev.io/compare/v1.6.0...v1.7.0) (2023-12-13)
 
 
