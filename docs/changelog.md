@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/Kacper-Hernacki/moderndev.io/compare/v1.9.0...v1.10.0) (2024-01-31)
+
+
+### Features
+
+* hidden pro-stripe ([e54c4ab](https://github.com/Kacper-Hernacki/moderndev.io/commit/e54c4abc57c78adb76c5325e90c47807f2c1e384))
+
 # [1.9.0](https://github.com/Kacper-Hernacki/moderndev.io/compare/v1.8.0...v1.9.0) (2024-01-31)
 
 
