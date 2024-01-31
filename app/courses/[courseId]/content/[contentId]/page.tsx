@@ -1,6 +1,7 @@
 import { notion } from "@/config";
 import { NotionPage } from "@/components";
 import CompleteModule from "@/components/courses/completeModule";
+import React from "react";
 
 async function getData(contentId: string) {
   return await notion.getPage(contentId);

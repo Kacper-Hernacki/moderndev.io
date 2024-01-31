@@ -1,6 +1,6 @@
 export default function LoadingSkeleton() {
   return (
-    <div className="p-4">
+    <div className="p-4 lg:mt-40">
       <div className="skeleton text-center h-10 w-full mb-8"></div>
       <div className="flex justify-center gap-4">
         {[...Array(4)].map((_, i) => (
