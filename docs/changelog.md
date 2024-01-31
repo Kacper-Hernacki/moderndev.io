@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/Kacper-Hernacki/moderndev.io/compare/v1.8.0...v1.9.0) (2024-01-31)
+
+
+### Features
+
+* stripe live ([db7f4ab](https://github.com/Kacper-Hernacki/moderndev.io/commit/db7f4abc628394fe6056ff8438993144111039ec))
+
 # [1.8.0](https://github.com/Kacper-Hernacki/moderndev.io/compare/v1.7.0...v1.8.0) (2024-01-10)
 
 
