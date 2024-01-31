@@ -21,10 +21,10 @@ const Profile: NextPage = async () => {
         <h3 className="my-2 text-xl font-bold">Account Email: <span className="text-gray-400">{email}</span></h3>
       </div>
       <button className="my-8 btn btn-secondary text-xl">Sign Out</button>
-      <div className="my-8">
-        <h1 className="mb-8 text-5xl font-bold">Manage Account</h1>
-        <ManageAccountButton />
-      </div>
+      {/*<div className="my-8">*/}
+      {/*  <h1 className="mb-8 text-5xl font-bold">Manage Account</h1>*/}
+      {/*  <ManageAccountButton />*/}
+      {/*</div>*/}
       <DeleteModal />
     </div>
   );

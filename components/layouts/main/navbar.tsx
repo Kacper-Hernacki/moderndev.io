@@ -90,7 +90,7 @@ export const Navbar: React.FC<NavbarProps> = ({ session }) => {
 
       {/* Desktop Navigation */}
       <div className="hidden lg:flex flex-none gap-2">
-        <UpgradeBanner />
+        {/*<UpgradeBanner />*/}
         <Link href={"/courses"} className="cursor-pointer text-xl menu-title text-white">Courses</Link>
         <Link href={"/lab"} className="cursor-pointer text-xl menu-title text-white">Lab</Link>
         <Link href={"/offer"} className="cursor-pointer text-xl menu-title text-white">Offer</Link>
