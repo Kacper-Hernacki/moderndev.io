@@ -8,7 +8,7 @@ async function getData(courseId: string) {
 }
 
 function replaceUnderscoresWithSpaces(str: string) {
-  return str.replace(/_/g, " ");
+  return str?.replace(/_/g, " ");
 }
 
 export default async function CoursePage({ params, searchParams }: {
@@ -26,7 +26,8 @@ export default async function CoursePage({ params, searchParams }: {
   const response: QueryDatabaseResponse = await notionApi.databases.query({
     database_id: collectionViewIds[0],
   });
+  const idsOfAllCourses = response?.results?.map((item) => item.id);
 
   // @ts-ignore
-  return <Grid courseId={courseId} linkCore={`/courses/${courseId}`} items={response?.results.reverse()} title={replaceUnderscoresWithSpaces(title)} coursesProgressEnabled={true}/>;
+  return <Grid courseId={courseId} linkCore={`/courses/${courseId}`} items={response?.results.reverse()} title={replaceUnderscoresWithSpaces(title)} coursesProgressEnabled={true} idsOfAllCourses={idsOfAllCourses} />;
 }

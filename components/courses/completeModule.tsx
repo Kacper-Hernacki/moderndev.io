@@ -5,12 +5,14 @@ import { serverTimestamp } from "@firebase/database";
 import { db } from "@/firebase";
 import { useEffect, useState } from "react";
 import { useSnackbar } from "notistack";
+import { useRouter } from "next/navigation";
 
 export default function CompleteModule({ moduleLessonId, moduleId }: { moduleLessonId: string, moduleId: string }) {
   const { data: session } = useSession();
   const [isCompleted, setIsCompleted] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const { enqueueSnackbar } = useSnackbar();
+  const router = useRouter();
 
   useEffect(() => {
     const checkIfLessonCompleted = async () => {
@@ -46,12 +48,12 @@ export default function CompleteModule({ moduleLessonId, moduleId }: { moduleLes
       setIsLoading(false);
       setIsCompleted(true);
       enqueueSnackbar("Lesson Completed", { variant: "success" });
-
     } catch (e) {
       console.log(e);
       setIsLoading(false);
       enqueueSnackbar("Could not mark as a complete", { variant: "error" });
     }
+    await router.back();
   }
 
   return (

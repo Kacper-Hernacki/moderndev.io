@@ -80,7 +80,7 @@ const Grid: React.FC<GridProps> = async ({ title, items, linkCore, coursesProgre
 
   return (
     <div className="flex flex-col justify-center p-4 lg:p-8">
-      <button className="btn btn-neutral w-40 bg-transparent text-white border-0" type="button" onClick={() => router.back()}>
+      <button className="btn btn-neutral w-40 bg-transparent text-white border-0" type="button" onClick={() => router.push('/courses')}>
         <ChevronLeft /> Go Back
       </button>
       <h1 className="my-4 w-full text-3xl lg:text-5xl xl:text-7xl gradient-span font-bold text-center">{title}</h1>
@@ -115,5 +115,4 @@ const Grid: React.FC<GridProps> = async ({ title, items, linkCore, coursesProgre
     </div>
   );
 };
-//
 export default Grid;

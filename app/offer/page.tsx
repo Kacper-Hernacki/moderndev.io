@@ -19,7 +19,8 @@ export default function Offer() {
         <div className="flex-col">
           <div className="flex-col w-full lg:flex-row justify-center">
             <h1 className="mb-10 overflow-hidden text-3xl lg:text-5xl text-center font-bold gradient-span">Schedule Quick Consultations</h1>
-            <InlineWidget url={process.env.NEXT_PUBLIC_CALENDLY_URL as string} />
+            <InlineWidget
+              url={process.env.NEXT_PUBLIC_CALENDLY_URL as string} />
           </div>
           <div className="mt-24 flex-col w-full lg:flex-row justify-center">
             <h1 className="mb-28 text-center text-3xl lg:text-5xl font-bold gradient-span">Or type your requirements</h1>

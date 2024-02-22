@@ -9,9 +9,9 @@ export default function Lab() {
   return (
     <div className="flex-col justify-center">
       <h1 className="mb-12 text-5xl gradient-span font-bold text-center">Moderndev Lab</h1>
-      <div className="flex flex-wrap gap-12">
-        <Link href="/snippets">
-          <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="flex flex-wrap">
+        <Link className="w-full sm:w-1 md:w-1/2 lg:w-1/3" href="/snippets">
+          <div className="card w-96 mx-auto bg-base-100 shadow-xl">
             <figure>
               <Image src={CodeSnippets} alt="code snippets" />
             </figure>
@@ -24,8 +24,8 @@ export default function Lab() {
             </div>
           </div>
         </Link>
-        <Link href="/ai-prompts">
-          <div className="card w-96 bg-base-100 shadow-xl">
+        <Link className="w-full sm:w-1 md:w-1/2 lg:w-1/3"  href="/ai-prompts">
+          <div className="card w-96 mx-auto bg-base-100 shadow-xl">
             <figure>
               <Image src={AiPrompts} alt="Automations" />
             </figure>
@@ -38,8 +38,8 @@ export default function Lab() {
             </div>
           </div>
         </Link>
-        <Link href="/automations">
-          <div className="card w-96 bg-base-100 shadow-xl">
+        <Link className="w-full sm:w-1 md:w-1/2 lg:w-1/3"  href="/automations">
+          <div className="card w-96 mx-auto bg-base-100 shadow-xl">
             <figure>
               <Image src={Automations} alt="Shoes" />
             </figure>

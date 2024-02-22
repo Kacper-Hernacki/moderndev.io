@@ -146,3 +146,36 @@ body {
 .black-and-white {
   filter: grayscale(100%);
 }
+
+.notion-bookmark-description {
+  color: white !important;
+}
+
+.notion-bookmark-title{
+  color: white !important;
+}
+
+.notion-bookmark-link{
+  color: white !important;
+}
+
+.notion-bookmark-link-text{
+  color: white !important;
+}
+
+.notion-row{
+  border: 1px solid white;
+}
+
+.notion-external-title{
+  color: white !important;
+}
+
+.notion-external-subtitle{
+  color: white !important;
+}
+
+.notion-external-image{
+border-radius: 50%;
+  background: white !important;
+}

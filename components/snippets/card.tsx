@@ -1,6 +1,5 @@
-"use client"
+"use client";
 import React from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSubscriptionStore } from "@/store/store";
 
@@ -63,9 +62,9 @@ const Card: React.FC<CardProps> = async ({ item, link, isCompleted }) => {
   const description = properties?.Description?.rich_text[0]?.plain_text;
   const tags = properties?.Tags?.multi_select;
   const accessToCourse = isProRestricted ? isPro : !isProRestricted;
-  const  router  = useRouter();
+  const router = useRouter();
 
-  const cardClass = accessToCourse? '' : 'grayscale';
+  const cardClass = accessToCourse ? "" : "grayscale";
 
 
   return (
