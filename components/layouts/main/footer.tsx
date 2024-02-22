@@ -52,7 +52,7 @@ export const Footer = () => {
             </Link>
           </p>
         </nav>
-        <p>Copyright © 2023 - All right reserved by moderndev.io</p>
+        <p>Copyright © 2024 - All right reserved by moderndev.io</p>
       </aside>
     </footer>
   )
