@@ -4,15 +4,14 @@ const nextConfig = {
     serverActions: true
   },
   images: {
-    domains: [
-      "lh3.googleusercontent.com",
-      "avatars.githubusercontent.com"
+    remotePatterns: [
+      { protocol: "https", hostname: "lh3.googleusercontent.com" },
+      { protocol: "https", hostname: "avatars.githubusercontent.com" }
     ]
   }
 };
 
 module.exports = nextConfig;
-
 
 // Injected content via Sentry wizard below
 
@@ -27,7 +26,7 @@ module.exports = withSentryConfig(
     // Suppresses source map uploading logs during build
     silent: true,
     org: "moderndevio",
-    project: "javascript-nextjs",
+    project: "javascript-nextjs"
   },
   {
     // For all available options, see:
@@ -52,6 +51,6 @@ module.exports = withSentryConfig(
     // See the following for more information:
     // https://docs.sentry.io/product/crons/
     // https://vercel.com/docs/cron-jobs
-    automaticVercelMonitors: true,
+    automaticVercelMonitors: true
   }
 );

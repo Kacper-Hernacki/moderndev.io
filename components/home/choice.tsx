@@ -80,7 +80,7 @@ export const ChoiceSection = () => {
               </div>
             </div>
             <div className="flex">
-              <div className="mt-8 flex-col max-w-sm mr-8">
+              <div className="mt-8 flex-col max-w-sm">
                 <Image width={!isMobile ? 300 : 150} src={LaptopWebstorm} alt="Album" />
                 <div className="flex">
                   <Image className="object-contain" width={!isMobile ? 70 : 35} src={WebstormLogo} alt="webstorm logo" />

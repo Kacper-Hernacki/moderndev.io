@@ -21,7 +21,7 @@ const Technology: React.FC<SingleTechProps> = ({ techLogo }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   return (
-    <Image src={techLogo} alt="Tech" width={50} height={50} layout="responsive" />
+    <Image src={techLogo} alt="Tech" width={50} height={50}/>
 
   );
 };
