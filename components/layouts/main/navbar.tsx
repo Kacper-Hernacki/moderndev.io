@@ -70,7 +70,7 @@ export const Navbar: React.FC<NavbarProps> = ({ session }) => {
           <Link href={"/offer"}>
             <div onClick={closeMenu} className="cursor-pointer menu-title text-white text-center text-xl">Offer</div>
           </Link>
-          <Link target={"_blank"} href={"https://newsletter.moderndev.io/"}>
+          <Link target={"_blank"} href={"https://newsletter.moderndev.info/"}>
             <div onClick={closeMenu} className="cursor-pointer menu-title text-white text-center text-xl">Newsletter</div>
           </Link>
           <Link href={"/profile"}>
