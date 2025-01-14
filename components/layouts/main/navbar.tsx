@@ -94,7 +94,7 @@ export const Navbar: React.FC<NavbarProps> = ({ session }) => {
         <Link href={"/courses"} className="cursor-pointer text-xl menu-title text-white">Courses</Link>
         <Link href={"/lab"} className="cursor-pointer text-xl menu-title text-white">Lab</Link>
         <Link href={"/offer"} className="cursor-pointer text-xl menu-title text-white">Offer</Link>
-        <Link target={"_blank"} href={"https://newsletter.moderndev.io/"} className="cursor-pointer text-xl menu-title text-white">Newsletter</Link>
+        <Link target={"_blank"} href={"https://newsletter.moderndev.info/"} className="cursor-pointer text-xl menu-title text-white">Newsletter</Link>
 
         <UserNav session={session} closeMenu={closeMenu}/>
       </div>
